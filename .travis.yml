@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - "6"
+before_script:
+  - npm install -g grunt
+  - sleep 15
+  - mongo mydb_test --eval 'db.addUser("travis", "test");'
+
+script: grunt mochaTest
+env:
+  - NODE_ENV = travis
+
+services:
+  - mongodb
