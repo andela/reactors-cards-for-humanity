@@ -3,4 +3,6 @@ public/lib
 .sass-cache/
 .DS_store
 c4h_keys.txt
+.idea/vcs.xml
+Project_Default.xml
 
