@@ -1,14 +1,37 @@
-language: node_js
-node_js:
-  - "6"
-before_script:
-  - npm install -g grunt
-  - sleep 15
-  - mongo mydb_test --eval 'db.addUser("travis", "test");'
-
-script: grunt mochaTest
-env:
-  - NODE_ENV = travis
-
-services:
-  - mongodb
+{
+  "language": "node_js",
+  "sudo": false,
+  "node_js": 6,
+  "os": "linux",
+  "env": "NODE_ENV=travis CXX=\"g++-4.8\" CC=\"gcc-4.8\"",
+  "services": [
+    "mongodb"
+  ],
+  "addons": {
+    "apt": {
+      "sources": [
+        "ubuntu-toolchain-r-test"
+      ],
+      "packages": [
+        "g++-4.8",
+        "gcc-4.8",
+        "clang"
+      ]
+    }
+  },
+  "before_install": [
+    "npm i nsp -g",
+    "npm i snyk -g",
+    "export DISPLAY=:99.0",
+    "bash scripts/setup-protractor.sh",
+    "sleep 3"
+  ],
+  "after_script": [
+    "nsp check",
+    "snyk test",
+    "gulp test:coverage",
+    "node_modules/.bin/lcov-result-merger 'coverage/**/lcov.info' | node_modules/coveralls/bin/coveralls.js"
+  ],
+  "group": "stable",
+  "dist": "precise"
+}
