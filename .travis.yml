@@ -18,20 +18,5 @@
         "clang"
       ]
     }
-  },
-  "before_install": [
-    "npm i nsp -g",
-    "npm i snyk -g",
-    "export DISPLAY=:99.0",
-    "bash scripts/setup-protractor.sh",
-    "sleep 3"
-  ],
-  "after_script": [
-    "nsp check",
-    "snyk test",
-    "gulp test:coverage",
-    "node_modules/.bin/lcov-result-merger 'coverage/**/lcov.info' | node_modules/coveralls/bin/coveralls.js"
-  ],
-  "group": "stable",
-  "dist": "precise"
+  }
 }
