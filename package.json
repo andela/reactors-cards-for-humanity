@@ -14,8 +14,7 @@
   },
   "scripts": {
     "start": "node node_modules/grunt-cli/bin/grunt",
-    "test": "istanbul cover node_modules/grunt-cli/bin/grunt test",
-    "testing": "node_modules/karma/bin/karma start karma.conf.js --single-run",
+    "test": "istanbul cover  node_modules/grunt-cli/bin/grunt test",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "postinstall": "node node_modules/grunt-cli/bin/grunt install"
   },
