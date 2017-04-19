@@ -6,7 +6,7 @@ const eslint = require('gulp-eslint');
 const nodemon = require('gulp-nodemon');
 const sass = require('gulp-sass');
 const browserSync = require('browser-sync');
-// const mocha = require('gulp-mocha');
+const mocha = require('gulp-mocha');
 
 // eslint task
 gulp.task('lint', () => {
@@ -33,8 +33,11 @@ gulp.task('watch', () => {
   gulp.watch(['app/**/*.js', 'public/js/**/*.js'], ['lint'])
     .on('change', browserSync.reload);
 });
+gulp.task('mocha', () => {
+  gulp.src('test.js', { read: false });
+});
 
 // default task
-gulp.task('default', ['lint', 'nodemon_file', 'sass', 'watch'], () => {
+gulp.task('default', ['lint', 'nodemon_file', 'sass', 'watch', 'mocha'], () => {
   gutil.log('Gulp is running!');
 });
