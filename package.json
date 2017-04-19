@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "gulp",
-    "test": "istanbul cover gulp test", 
+    "test": "istanbul cover gulp test",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "postinstall": "gulp bower"
     },
