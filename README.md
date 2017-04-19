@@ -1,8 +1,7 @@
-[![Build Status](https://travis-ci.org/andela/reactors-cards-for-humanity.svg?branch=travisci-badge)](https://travis-ci.org/andela/reactors-cards-for-humanity)
+[![Build Status](https://travis-ci.org/andela/reactors-cards-for-humanity.svg?branch=travisci-badge)](https://travis-ci.org/andela/reactors-cards-for-humanity)  [![Coverage Status](https://coveralls.io/repos/github/andela/reactors-cards-for-humanity/badge.svg?branch=chore/143412447/integrate-coveralls)](https://coveralls.io/github/andela/reactors-cards-for-humanity?branch=chore/143412447/integrate-coveralls)
 
 Cards for Humanity - [http://cfh.io](http://cfh.io)
 
-[![Coverage Status](https://coveralls.io/repos/github/andela/reactors-cards-for-humanity/badge.svg?branch=chore/143412447/integrate-coveralls)](https://coveralls.io/github/andela/reactors-cards-for-humanity?branch=chore/143412447/integrate-coveralls)
 ===========
 Cards for Humanity is a fast-paced online version of the popular card game, Cards Against Humanity, that gives you the opportunity to donate to children in need - all while remaining as despicable and awkward as you naturally are.
 
