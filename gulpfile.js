@@ -29,12 +29,12 @@ gulp.task('sass', () => gulp.src('./sass/**/*.scss')
 gulp.task('sass:watch', () => {
   gulp.watch('./sass/**/*.scss', ['sass']);
 });
-// gulp.task('watch', () => {
-//   gulp.watch(['app/**/*.js', 'public/js/**/*.js'], ['lint'])
-//     .on('change', browserSync.reload);
-// });
+gulp.task('watch', () => {
+  gulp.watch(['app/**/*.js', 'public/js/**/*.js'], ['lint'])
+    .on('change', browserSync.reload);
+});
 
 // default task
-gulp.task('default', ['lint', 'nodemon_file', 'sass'], () => {
+gulp.task('default', ['lint', 'nodemon_file', 'sass', 'watch'], () => {
   gutil.log('Gulp is running!');
 });
