@@ -6,4 +6,5 @@ services:
 env:
  - MONGOHQ_URL=mongodb://127.0.0.1/reactors
 after_script:
-- npm run coverage
+- npm run coveralls
+>>>>>>> [chore #143412447] change coverage to coveralls
