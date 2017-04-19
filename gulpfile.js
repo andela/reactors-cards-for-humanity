@@ -7,6 +7,7 @@ const nodemon = require('gulp-nodemon');
 const sass = require('gulp-sass');
 const browserSync = require('browser-sync');
 const mocha = require('gulp-mocha');
+const bower = require('gulp-bower');
 
 // eslint task
 gulp.task('lint', () => {
@@ -37,7 +38,12 @@ gulp.task('mocha', () => {
   gulp.src('test.js', { read: false });
 });
 
+gulp.task('bower', () => {
+  bower({ cmd: 'update' });
+});
+
 // default task
-gulp.task('default', ['lint', 'nodemon_file', 'sass', 'watch', 'mocha'], () => {
+gulp.task('default', ['lint', 'nodemon_file', 'sass', 'watch', 'mocha', 'bower'], () => {
   gutil.log('Gulp is running!');
 });
+
