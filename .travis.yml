@@ -6,4 +6,5 @@ services:
 env:
  - MONGOHQ_URL=mongodb://127.0.0.1/reactors
 after_script:
-- npm run coveralls
+ - npm run coveralls
+>>>>>>> [chore #143412447] add a npm command to run coveralls
