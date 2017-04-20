@@ -13,11 +13,8 @@
     "npm": "4.2.0"
   },
   "scripts": {
-<<<<<<< HEAD
     "start": "gulp",
     "test": "istanbul cover gulp test",
-=======
->>>>>>> [chore #143412447] add to scripts for coveralls and test
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "postinstall": "gulp bower"
     },
