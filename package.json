@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "gulp",
-    "test": "gulp mocha",
+    "test": "gulp test",
     "postinstall": "gulp bower"
   },
   "dependencies": {

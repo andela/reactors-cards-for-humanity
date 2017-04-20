@@ -41,7 +41,7 @@ gulp.task('watch', () => {
 });
 
 // checking tests with mocha task
-gulp.task('mocha', () => gulp.src(['./test/**/*.js'], { read: false })
+gulp.task('test', () => gulp.src(['./test/**/*.js'], { read: false })
   .pipe(mocha({ reporter: 'spec' }))
   .pipe(istanbul.writeReports())
   .pipe(istanbul.enforceThresholds({ thresholds: { global: 90 } }))
