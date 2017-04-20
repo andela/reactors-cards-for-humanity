@@ -8,6 +8,7 @@ const sass = require('gulp-sass');
 const browserSync = require('browser-sync');
 const mocha = require('gulp-mocha');
 const bower = require('gulp-bower');
+const istanbul = require('gulp-istanbul');
 
 // eslint task
 gulp.task('lint', () => {
@@ -34,9 +35,12 @@ gulp.task('watch', () => {
   gulp.watch(['app/**/*.js', 'public/js/**/*.js'], ['lint'])
     .on('change', browserSync.reload);
 });
-gulp.task('mocha', () => {
-  gulp.src('test.js', { read: false });
-});
+
+gulp.task('mocha', () => gulp.src(['./test/**/*.js'], { read: false })
+  .pipe(mocha({ reporter: 'spec' }))
+  .pipe(istanbul.writeReports())
+  .pipe(istanbul.enforceThresholds({ thresholds: { global: 90 } }))
+);
 
 gulp.task('bower', () => {
   bower({ cmd: 'update' });
@@ -46,4 +50,3 @@ gulp.task('bower', () => {
 gulp.task('default', ['lint', 'nodemon_file', 'sass', 'watch', 'mocha', 'bower'], () => {
   gutil.log('Gulp is running!');
 });
-
