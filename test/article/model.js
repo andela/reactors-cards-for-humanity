@@ -1,6 +1,5 @@
 // Module dependencies.
-//  
-// Module dependencies.
+
 // var should = require('should'),
 //     app = require('../../server'),
 //     mongoose = require('mongoose'),
