@@ -1,4 +1,3 @@
-// 
 // Module dependencies.
 // 
 // var should = require('should'),
@@ -34,14 +33,14 @@
 //         });
 
 //         describe('Method Save', function() {
-//             it('should be able to save whithout problems', function(done) {
+//           it('should be able to save whithout problems', function(done) {
 //                 return article.save(function(err) {
 //                     should.not.exist(err);
 //                     done();
 //                 });
 //             });
 
-//             it('should be able to show an error when try to save witout title', function(done) {
+//           it('should be able to show an error when try to save witout title', function(done) {
 //                 article.title = '';
 
 //                 return article.save(function(err) {
