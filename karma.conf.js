@@ -15,6 +15,12 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      './public/lib/angular/angular.js',
+      './public/js/app.js',
+      './public/js/services/*.js',
+      './public/js/controllers/*.js',
+      './public/js/directives.js',
+      './test/**/*/.js',
       './test/mock_test/sum.spec.js'
     ],
 
@@ -50,7 +56,7 @@ module.exports = function(config) {
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
+    autoWatch: false,
 
 
     // start these browsers
@@ -60,7 +66,7 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: true,
 
     // Concurrency level
     // how many browser should be started simultaneous
