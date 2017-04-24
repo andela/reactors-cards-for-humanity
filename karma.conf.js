@@ -20,12 +20,15 @@ module.exports = function (config) {
 
     // list of files / patterns to load in the browser
     files: [
+<<<<<<< HEAD
       './public/lib/angular/angular.js',
       './public/js/app.js',
       './public/js/services/*.js',
       './public/js/controllers/*.js',
       './public/js/directives.js',
       './test/**/*/.js',
+=======
+>>>>>>> [Chore #143412443] Mock summation test
       './test/mock_test/sum.spec.js'
     ],
 
