@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Mon Apr 24 2017 18:04:02 GMT+0300 (EAT)
 
-module.exports = function (config) {
+module.exports = (config) => {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -20,15 +20,12 @@ module.exports = function (config) {
 
     // list of files / patterns to load in the browser
     files: [
-<<<<<<< HEAD
       './public/lib/angular/angular.js',
       './public/js/app.js',
       './public/js/services/*.js',
       './public/js/controllers/*.js',
       './public/js/directives.js',
       './test/**/*/.js',
-=======
->>>>>>> [Chore #143412443] Mock summation test
       './test/mock_test/sum.spec.js'
     ],
 
@@ -59,7 +56,8 @@ module.exports = function (config) {
 
 
     // level of logging
-    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN
+    // || config.LOG_INFO || config.LOG_DEBUG
     logLevel: config.LOG_INFO,
 
 
