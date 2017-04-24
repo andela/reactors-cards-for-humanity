@@ -42,7 +42,6 @@
     "gulp-nodemon": "^2.2.1",
     "gulp-sass": "^3.1.0",
     "jade": "~1.11.0",
-    "karma-es6-shim": "^1.0.0",
     "mean-logger": "~0.0.1",
     "method-override": "^2.3.8",
     "mocha": "^3.2.0",
@@ -80,16 +79,10 @@
     "jasmine": "^2.5.3",
     "jasmine-core": "^2.5.2",
     "karma": "^1.6.0",
-    "karma-babel-preprocessor": "^6.0.1",
     "karma-chrome-launcher": "^2.0.0",
-<<<<<<< HEAD
-    "karma-firefox-launcher": "^1.0.1",
-=======
-    "karma-coverage": "^1.1.1",
-    "karma-coveralls": "^1.1.2",
->>>>>>> [Chore #143412443] Remove Firefox and PhantomJS from plugins and browsers
     "karma-jasmine": "^1.1.0",
     "should": "~11.2.1",
     "supertest": "~3.0.0"
   }
 }
+

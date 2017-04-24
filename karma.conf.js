@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Mon Apr 24 2017 18:04:02 GMT+0300 (EAT)
 
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -10,19 +10,13 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine', 'es6-shim'],
+    frameworks: ['jasmine'],
 
-<<<<<<< HEAD
-=======
     plugins: [
       'karma-chrome-launcher',
       'karma-jasmine',
       'karma-coveralls',
-      'karma-coverage',
-      'karma-es6-shim',
-      'karma-babel-preprocessor'
     ],
->>>>>>> [Chore #143412443] Update karma.conf.js
 
     // list of files / patterns to load in the browser
     files: [
@@ -44,11 +38,6 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-<<<<<<< HEAD
-=======
-      'src/test/**/*/*.js': ['babel'],
-      'src/public/**/*/*.js': ['coverage']
->>>>>>> [Chore #143412443] Remove Firefox and PhantomJS from plugins and browsers
     },
 
 
@@ -87,10 +76,6 @@ module.exports = function(config) {
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity
-<<<<<<< HEAD
-  })
-}
-=======
   });
 };
->>>>>>> [Chore #143412443] Update karma.conf.js
+
