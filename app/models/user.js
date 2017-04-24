@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Module dependencies.
 // const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose'),
@@ -6,6 +7,18 @@ const mongoose = require('mongoose'),
   authTypes = ['github', 'twitter', 'facebook', 'google'];
   // const jwt = require('jsonwebtoken');
     // MY_SECRET = require('../../apiproperties');
+=======
+/**
+ * Module dependencies.
+ */
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema,
+    bcrypt = require('bcryptjs'),
+    _ = require('underscore'),
+    authTypes = ['github', 'twitter', 'facebook', 'google'],
+    jwt = require('jsonwebtoken');
+    MY_SECRET = require('../../apiproperties');
+>>>>>>> [JWT-login #143412449] Generate JWT token
 
 
 // User Schema
@@ -81,12 +94,25 @@ UserSchema.methods = {
      * @return {Boolean}
      * @api public
      */
+<<<<<<< HEAD
   authenticate(plainText) {
     if (!plainText || !this.hashed_password) {
       return false;
     }
     return bcrypt.compareSync(plainText, this.hashed_password);
   },
+=======
+    authenticate: function(plainText) {
+        if (!plainText || !this.hashed_password) {
+            return false;
+        }
+        if (bcrypt.compareSync(plainText,this.hashed_password)) {
+            this.generateJwt();
+            return true;
+        }
+        return false;
+    },
+>>>>>>> [JWT-login #143412449] Generate JWT token
 
     /**
      * Encrypt password
@@ -95,10 +121,29 @@ UserSchema.methods = {
      * @return {String}
      * @api public
      */
+<<<<<<< HEAD
   encryptPassword(password) {
     if (!password) return '';
     return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
   },
+=======
+    encryptPassword: function(password) {
+        if (!password) return '';
+        return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+    },
+
+    generateJwt: function() {
+        var expiry = new Date();
+        expiry.setDate(expiry.getDate() + 7);
+
+        return jwt.sign({
+            _id: this._id,
+            // email: this.email,
+            // name: this.name,
+            exp: parseInt(expiry.getTime() / 1000),
+        },      'jndvfeufNNoiwjdsadnowijd');
+    }
+>>>>>>> [JWT-login #143412449] Generate JWT token
 };
 
 mongoose.model('User', UserSchema);
