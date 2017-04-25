@@ -10,16 +10,22 @@ module.exports = (config) => {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'es6-shim'],
 
     plugins: [
       'karma-chrome-launcher',
       'karma-jasmine',
       'karma-coveralls',
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       'karma-coverage'
 >>>>>>> [Chore #143412443] Update karma.conf.js
+=======
+      'karma-coverage',
+      'karma-es6-shim',
+      'karma-babel-preprocessor'
+>>>>>>> [Chore #143412443] Remove Firefox and PhantomJS from plugins and browsers
     ],
 
     // list of files / patterns to load in the browser
@@ -42,6 +48,11 @@ module.exports = (config) => {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+<<<<<<< HEAD
+=======
+      'src/test/**/*/*.js': ['babel'],
+      'src/public/**/*/*.js': ['coverage']
+>>>>>>> [Chore #143412443] Remove Firefox and PhantomJS from plugins and browsers
     },
 
 
