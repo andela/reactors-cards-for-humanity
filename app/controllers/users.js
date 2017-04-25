@@ -1,20 +1,26 @@
+/* global next:true*/
+/* eslint no-undef: "error"*/
+/* eslint no-underscore-dangle: ["error", { "allow": ["_id"]}]*/
+/* eslint no-unused-vars: ["error", { "argsIgnorePattern": "^_" }]*/
+
 /**
  * Module dependencies.
  */
 const mongoose = require('mongoose');
+
 const User = mongoose.model('User');
 const avatars = require('./avatars').all();
 const jwt = require('jsonwebtoken');
-  // _ = require('_underscore');
+
 const secretKey = process.env.SECRET_KEY;
 
 // Auth callback
-exports.authCallback = function (req, res, next) {
+exports.authCallback = (req, res) => {
   res.redirect('/chooseavatars');
 };
 
 // Show login form
-exports.signin = function (req, res) {
+exports.signin = (req, res) => {
   if (!req.user) {
     res.redirect('/#!/signin?error=invalid');
   } else {
@@ -23,7 +29,7 @@ exports.signin = function (req, res) {
 };
 
 // Show sign up form
-exports.signup = function (req, res) {
+exports.signup = (req, res) => {
   if (!req.user) {
     res.redirect('/#!/signup');
   } else {
@@ -32,14 +38,13 @@ exports.signup = function (req, res) {
 };
 
 // Logout
-exports.signout = function (req, res) {
+exports.signout = (req, res) => {
   req.logout();
   res.redirect('/');
 };
 
 // Session
-
-exports.session = function (req, res) {
+exports.session = (req, res) => {
   res.redirect('/');
 };
 
@@ -48,7 +53,7 @@ exports.session = function (req, res) {
  * already has an avatar. If they don't have one, redirect them
  * to our Choose an Avatar page.
  */
-exports.checkAvatar = function (req, res) {
+exports.checkAvatar = (req, res) => {
   if (req.user && req.user._id) {
     User.findOne({
       _id: req.user._id
@@ -66,10 +71,8 @@ exports.checkAvatar = function (req, res) {
   }
 };
 
-/**
- * Create user
- */
-exports.create = function (req, res) {
+// Create user
+exports.create = (req, res) => {
   if (req.body.name && req.body.password && req.body.email) {
     User.findOne({
       email: req.body.email
@@ -100,10 +103,8 @@ exports.create = function (req, res) {
   }
 };
 
-/**
- * Assign avatar to user
- */
-exports.avatars = function (req, res) {
+// Assign avatar to user
+exports.avatars = (req, res) => {
   // Update the current user's profile to include the avatar choice they've made
   if (req.user && req.user._id && req.body.avatar !== undefined &&
     /\d/.test(req.body.avatar) && avatars[req.body.avatar]) {
@@ -118,7 +119,7 @@ exports.avatars = function (req, res) {
   return res.redirect('/#!/app');
 };
 
-exports.addDonation = function (req, res) {
+exports.addDonation = (req, res) => {
   if (req.body && req.user && req.user._id) {
     // Verify that the object contains crowdrise data
     if (req.body.amount && req.body.crowdrise_donation_id && req.body.donor_name) {
@@ -128,7 +129,7 @@ exports.addDonation = function (req, res) {
       .exec((err, user) => {
         // Confirm that this object hasn't already been entered
         let duplicate = false;
-        for (let i = 0; i < user.donations.length; i++) {
+        for (let i = 0; i < user.donations.length; i += 1) {
           if (user.donations[i].crowdrise_donation_id === req.body.crowdrise_donation_id) {
             duplicate = true;
           }
@@ -144,8 +145,8 @@ exports.addDonation = function (req, res) {
   res.send();
 };
 
-// Show profile
-exports.show = function (req, res) {
+// Show user profile
+exports.show = (req, res) => {
   const user = req.profile;
 
   res.render('users/show', {
@@ -155,12 +156,12 @@ exports.show = function (req, res) {
 };
 
 // Send User
-exports.me = function (req, res) {
+exports.me = (req, res) => {
   res.jsonp(req.user || null);
 };
 
 // Find user by id
-exports.user = function (req, res, next, id) {
+exports.user = (req, res, next, id) => {
   User
     .findOne({
       _id: id
@@ -173,9 +174,8 @@ exports.user = function (req, res, next, id) {
     });
 };
 
-exports.loginWithEmail = function (req, res) {
-  // get the user credentials from form  req.body.password
-  // req.body.email
+ // Attach token to user credentials after authentication
+exports.loginWithEmail = (req, res) => {
   User
     .findOne({ email: req.body.email })
     .then((user) => {
