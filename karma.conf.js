@@ -10,17 +10,17 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'es6-shim'],
 
 <<<<<<< HEAD
 =======
     plugins: [
-      'karma-phantomjs-launcher',
       'karma-chrome-launcher',
-      'karma-firefox-launcher',
       'karma-jasmine',
       'karma-coveralls',
-      'karma-coverage'
+      'karma-coverage',
+      'karma-es6-shim',
+      'karma-babel-preprocessor'
     ],
 >>>>>>> [Chore #143412443] Update karma.conf.js
 
@@ -44,6 +44,11 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+<<<<<<< HEAD
+=======
+      'src/test/**/*/*.js': ['babel'],
+      'src/public/**/*/*.js': ['coverage']
+>>>>>>> [Chore #143412443] Remove Firefox and PhantomJS from plugins and browsers
     },
 
 
@@ -72,7 +77,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome', 'Firefox', 'PhantomJS'],
+    browsers: ['Chrome'],
 
 
     // Continuous Integration mode

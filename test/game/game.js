@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 var should = require('should');
 var io = require('socket.io-client');
 
 var socketURL = 'http://localhost:3000';
+=======
+// const should = require('should');
+const io = require('socket.io-client');
+>>>>>>> [Chore #143412443] Remove Firefox and PhantomJS from plugins and browsers
 
 var options ={
   transports: ['websocket'],
@@ -49,6 +54,7 @@ describe("Game Server",function(){
       client2.disconnect();
       done();
     };
+<<<<<<< HEAD
     client1.on('connect', function(data){
       client1.emit('joinGame',{userID:'unauthenticated',room: '', createPrivate: false});
       client2 = io.connect(socketURL, options);
@@ -56,16 +62,32 @@ describe("Game Server",function(){
         client2.emit('joinGame',{userID:'unauthenticated',room: '', createPrivate: false});
         client1.on('notification', function(data) {
           data.notification.should.match(/ has joined the game\!/);
+=======
+    client1.on('connect', (data) => {
+      client1.emit('joinGame', { userID: 'unauthenticated', room: '', createPrivate: false });
+      client2 = io.connect(socketURL, options);
+      client2.on('connect', () => {
+        client2.emit('joinGame', { userID: 'unauthenticated', room: '', createPrivate: false });
+        client1.on('notification', () => {
+          data.notification.should.match(/ has joined the game!/);
+>>>>>>> [Chore #143412443] Remove Firefox and PhantomJS from plugins and browsers
         });
       });
       setTimeout(disconnect,200);
     });
   });
 
+<<<<<<< HEAD
   it('Should start game when startGame event is sent with 3 players', function(done){
     var client1, client2, client3;
     client1 = io.connect(socketURL, options);
     var disconnect = function() {
+=======
+  it('Should start game when startGame event is sent with 3 players', (done) => {
+    let client1, client2, client3;
+    client1 = io.connect(socketURL, options);
+    const disconnect = () => {
+>>>>>>> [Chore #143412443] Remove Firefox and PhantomJS from plugins and browsers
       client1.disconnect();
       client2.disconnect();
       client3.disconnect();
@@ -98,10 +120,17 @@ describe("Game Server",function(){
     });
   });
 
+<<<<<<< HEAD
   it('Should automatically start game when 6 players are in a game', function(done){
     var client1, client2, client3, client4, client5, client6;
     client1 = io.connect(socketURL, options);
     var disconnect = function() {
+=======
+  it('Should automatically start game when 6 players are in a game', (done) => {
+    let client1, client2, client3, client4, client5, client6;
+    client1 = io.connect(socketURL, options);
+    const disconnect = () => {
+>>>>>>> [Chore #143412443] Remove Firefox and PhantomJS from plugins and browsers
       client1.disconnect();
       client2.disconnect();
       client3.disconnect();
