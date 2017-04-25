@@ -15,15 +15,15 @@ module.exports = (config) => {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'es6-shim'],
 
     plugins: [
-      'karma-phantomjs-launcher',
       'karma-chrome-launcher',
-      'karma-firefox-launcher',
       'karma-jasmine',
       'karma-coveralls',
-      'karma-coverage'
+      'karma-coverage',
+      'karma-es6-shim',
+      'karma-babel-preprocessor'
     ],
 
     // list of files / patterns to load in the browser
@@ -44,8 +44,8 @@ module.exports = (config) => {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
 
     preprocessors: {
-      'src/test/**/*/*.js': ['coverage'],
-      'src/public/**/*/*.js': ['babel']
+      'src/test/**/*/*.js': ['babel'],
+      'src/public/**/*/*.js': ['coverage']
     },
 
 
@@ -75,7 +75,7 @@ module.exports = (config) => {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome', 'Firefox', 'PhantomJS'],
+    browsers: ['Chrome'],
 
 
     // Continuous Integration mode
