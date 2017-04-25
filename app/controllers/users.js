@@ -24,6 +24,7 @@ const User = mongoose.model('User');
 const avatars = require('./avatars').all();
 const jwt = require('jsonwebtoken');
   // _ = require('_underscore');
+const secretKey = process.env.SECRET_KEY;
 
 // Auth callback
 exports.authCallback = function (req, res, next) {
@@ -265,26 +266,25 @@ exports.loginWithEmail = (req, res) => {
 exports.loginWithEmail = function (req, res) {
   // get the user credentials from form  req.body.password
   // req.body.email
-  // console.log(req.body);
   User
     .findOne({ email: req.body.email })
     .then((user) => {
-      // compare the password
       if (!user) {
-        res.json({ success: false, message: 'authentication failed' });
-      } else if (user.authenticate(req.body.password)) {
-        // console.log("mimi");
-        const token = user.generateJwt();
-        // jwt.sign(user, app.get('secret'), {
-        //   expiresInMinutes: 1400
-        // });
-        res.json({
-          success: true,
-          token
-        });
-      } else {
-        res.json({ success: false, message: ' 1 authentication failed' });
+        return res.status(401).json({ message: 'User not found' });
       }
+      if (!user.authenticate(req.body.password)) {
+        return res.status(401).json({
+          message: 'Invalid password'
+        });
+      }
+<<<<<<< HEAD
 >>>>>>> [JWT-login #143412449] Lint files and add method for token attachment to users.js
+=======
+      const token = jwt.sign(user._id, secretKey, {
+        expiresIn: '24h'
+      });
+      user.password = null;
+      res.status(200).json(Object.assign({}, user._id, user.name, user.email, { token }));
+>>>>>>> [JWT-login #143412449] Update path and method to add jwt token on successful signin
     });
 };

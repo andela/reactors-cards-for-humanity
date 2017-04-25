@@ -14,7 +14,11 @@ const async = require('async');
 module.exports = function (app, passport, auth) {
     // User Routes
   const users = require('../app/controllers/users');
+<<<<<<< HEAD
 >>>>>>> [JWT-login #143412449] Lint files and add method for token attachment to users.js
+=======
+
+>>>>>>> [JWT-login #143412449] Update path and method to add jwt token on successful signin
   app.get('/signin', users.signin);
   app.get('/signup', users.signup);
   app.get('/chooseavatars', users.checkAvatar);
@@ -154,6 +158,12 @@ module.exports = function (app, passport, auth) {
   app.get('/play', index.play);
   app.get('/', index.render);
 
+<<<<<<< HEAD
   app.post('/signin', users.loginWithEmail);
 >>>>>>> [JWT-login #143412449] Lint files and add method for token attachment to users.js
+=======
+  // Attach Login token route
+  app.post('/api/auth/login', users.loginWithEmail);
+  // app.post('/api/auth/signup', users.loginWithEmail);
+>>>>>>> [JWT-login #143412449] Update path and method to add jwt token on successful signin
 };

@@ -126,6 +126,7 @@ UserSchema.methods = {
     if (!password) return '';
     return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
   },
+<<<<<<< HEAD
 =======
     encryptPassword: function(password) {
         if (!password) return '';
@@ -144,6 +145,8 @@ UserSchema.methods = {
         },      'jndvfeufNNoiwjdsadnowijd');
     }
 >>>>>>> [JWT-login #143412449] Generate JWT token
+=======
+>>>>>>> [JWT-login #143412449] Update path and method to add jwt token on successful signin
 };
 
 mongoose.model('User', UserSchema);
