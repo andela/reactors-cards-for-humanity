@@ -16,6 +16,10 @@ module.exports = (config) => {
       'karma-chrome-launcher',
       'karma-jasmine',
       'karma-coveralls',
+<<<<<<< HEAD
+=======
+      'karma-coverage'
+>>>>>>> [Chore #143412443] Update karma.conf.js
     ],
 
     // list of files / patterns to load in the browser
@@ -79,4 +83,3 @@ module.exports = (config) => {
     concurrency: Infinity
   });
 };
-
