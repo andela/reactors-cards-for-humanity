@@ -3,9 +3,7 @@
 /* eslint no-underscore-dangle: ["error", { "allow": ["_id"]}]*/
 /* eslint no-unused-vars: ["error", { "argsIgnorePattern": "^_" }]*/
 
-/**
- * Module dependencies.
- */
+// Module dependencies.
 const mongoose = require('mongoose');
 
 const User = mongoose.model('User');
