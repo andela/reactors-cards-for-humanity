@@ -3,6 +3,7 @@ const async = require('async');
 module.exports = function (app, passport, auth) {
     // User Routes
   const users = require('../app/controllers/users');
+
   app.get('/signin', users.signin);
   app.get('/signup', users.signup);
   app.get('/chooseavatars', users.checkAvatar);
@@ -90,5 +91,7 @@ module.exports = function (app, passport, auth) {
   app.get('/play', index.play);
   app.get('/', index.render);
 
-  app.post('/signin', users.loginWithEmail);
+  // Attach Login token route
+  app.post('/api/auth/login', users.loginWithEmail);
+  // app.post('/api/auth/signup', users.loginWithEmail);
 };
