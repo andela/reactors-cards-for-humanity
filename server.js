@@ -2,7 +2,7 @@
  * Module dependencies.
  */
 require('dotenv').config();
-let express = require('express'),
+const express = require('express'),
   fs = require('fs'),
   passport = require('passport'),
   logger = require('mean-logger'),
@@ -15,7 +15,7 @@ let express = require('express'),
 
 // Load configurations
 // if test env, load example file
-let env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
+const env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
   config = require('./config/config'),
   auth = require('./config/middlewares/authorization'),
   mongoose = require('mongoose');
@@ -25,7 +25,7 @@ const db = mongoose.connect(config.db);
 
 // Bootstrap models
 const models_path = `${__dirname}/app/models`;
-var walk = function (path) {
+const walk = function (path) {
   fs.readdirSync(path).forEach((file) => {
     const newPath = `${path}/${file}`;
     const stat = fs.statSync(newPath);
@@ -61,6 +61,7 @@ const server = app.listen(port);
 const ioObj = io.listen(server, { log: false });
 // game logic handled here
 require('./config/socket/socket')(ioObj);
+
 console.log(`Express app started on port ${port}`);
 
 // Initializing logger
