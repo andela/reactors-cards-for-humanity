@@ -23,8 +23,8 @@ module.exports = (config) => {
       'karma-firefox-launcher',
       'karma-jasmine',
       'karma-coveralls',
-      'karma-coverage',
-       ],
+      'karma-coverage'
+    ],
 
     // list of files / patterns to load in the browser
     files: [
@@ -87,4 +87,3 @@ module.exports = (config) => {
     concurrency: Infinity
   });
 };
-
