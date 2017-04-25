@@ -1,8 +1,13 @@
 // Karma configuration
 // Generated on Mon Apr 24 2017 18:04:02 GMT+0300 (EAT)
 
-module.exports = function(config) {
+module.exports = (config) => {
   config.set({
+    coverageReporter: {
+      instrumenterOptions: {
+        istanbul: { noCompact: true }
+      }
+    },
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
@@ -12,6 +17,14 @@ module.exports = function(config) {
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine'],
 
+    plugins: [
+      'karma-phantomjs-launcher',
+      'karma-chrome-launcher',
+      'karma-firefox-launcher',
+      'karma-jasmine',
+      'karma-coveralls',
+      'karma-coverage',
+       ],
 
     // list of files / patterns to load in the browser
     files: [
@@ -20,26 +33,26 @@ module.exports = function(config) {
       './public/js/services/*.js',
       './public/js/controllers/*.js',
       './public/js/directives.js',
-      './test/**/*/.js',
-      './test/mock_test/sum.spec.js'
+      './test/mock_test/**/*.js'
     ],
 
 
     // list of files to exclude
-    exclude: [
-    ],
-
+    exclude: [],
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+
     preprocessors: {
+      'src/test/**/*/*.js': ['coverage'],
+      'src/public/**/*/*.js': ['babel']
     },
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage', 'coveralls'],
 
 
     // web server port
@@ -51,7 +64,8 @@ module.exports = function(config) {
 
 
     // level of logging
-    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN ||
+    // config.LOG_INFO || config.LOG_DEBUG
     logLevel: config.LOG_INFO,
 
 
@@ -71,5 +85,6 @@ module.exports = function(config) {
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity
-  })
-}
+  });
+};
+
