@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* global next:true*/
 /* eslint no-undef: "error"*/
 /* eslint no-underscore-dangle: ["error", { "allow": ["_id"]}]*/
@@ -14,21 +15,41 @@ const secretKey = process.env.SECRET_KEY;
 
 // Auth callback
 exports.authCallback = (req, res) => {
+=======
+/**
+ * Module dependencies.
+ */
+const mongoose = require('mongoose');
+const User = mongoose.model('User');
+const avatars = require('./avatars').all();
+const jwt = require('jsonwebtoken');
+  // _ = require('_underscore');
+
+// Auth callback
+exports.authCallback = function (req, res, next) {
+>>>>>>> [JWT-login #143412449] Lint files and add method for token attachment to users.js
   res.redirect('/chooseavatars');
 };
 
 // Show login form
+<<<<<<< HEAD
 exports.signin = (req, res) => {
+=======
+exports.signin = function (req, res) {
+>>>>>>> [JWT-login #143412449] Lint files and add method for token attachment to users.js
   if (!req.user) {
     res.redirect('/#!/signin?error=invalid');
   } else {
-
     res.redirect('/#!/app');
   }
 };
 
 // Show sign up form
+<<<<<<< HEAD
 exports.signup = (req, res) => {
+=======
+exports.signup = function (req, res) {
+>>>>>>> [JWT-login #143412449] Lint files and add method for token attachment to users.js
   if (!req.user) {
     res.redirect('/#!/signup');
   } else {
@@ -37,13 +58,22 @@ exports.signup = (req, res) => {
 };
 
 // Logout
+<<<<<<< HEAD
 exports.signout = (req, res) => {
+=======
+exports.signout = function (req, res) {
+>>>>>>> [JWT-login #143412449] Lint files and add method for token attachment to users.js
   req.logout();
   res.redirect('/');
 };
 
 // Session
+<<<<<<< HEAD
 exports.session = (req, res) => {
+=======
+
+exports.session = function (req, res) {
+>>>>>>> [JWT-login #143412449] Lint files and add method for token attachment to users.js
   res.redirect('/');
 };
 
@@ -52,7 +82,11 @@ exports.session = (req, res) => {
  * already has an avatar. If they don't have one, redirect them
  * to our Choose an Avatar page.
  */
+<<<<<<< HEAD
 exports.checkAvatar = (req, res) => {
+=======
+exports.checkAvatar = function (req, res) {
+>>>>>>> [JWT-login #143412449] Lint files and add method for token attachment to users.js
   if (req.user && req.user._id) {
     User.findOne({
       _id: req.user._id
@@ -70,8 +104,15 @@ exports.checkAvatar = (req, res) => {
   }
 };
 
+<<<<<<< HEAD
 // Create user
 exports.create = (req, res) => {
+=======
+/**
+ * Create user
+ */
+exports.create = function (req, res) {
+>>>>>>> [JWT-login #143412449] Lint files and add method for token attachment to users.js
   if (req.body.name && req.body.password && req.body.email) {
     User.findOne({
       email: req.body.email
@@ -102,8 +143,15 @@ exports.create = (req, res) => {
   }
 };
 
+<<<<<<< HEAD
 // Assign avatar to user
 exports.avatars = (req, res) => {
+=======
+/**
+ * Assign avatar to user
+ */
+exports.avatars = function (req, res) {
+>>>>>>> [JWT-login #143412449] Lint files and add method for token attachment to users.js
   // Update the current user's profile to include the avatar choice they've made
   if (req.user && req.user._id && req.body.avatar !== undefined &&
     /\d/.test(req.body.avatar) && avatars[req.body.avatar]) {
@@ -118,7 +166,11 @@ exports.avatars = (req, res) => {
   return res.redirect('/#!/app');
 };
 
+<<<<<<< HEAD
 exports.addDonation = (req, res) => {
+=======
+exports.addDonation = function (req, res) {
+>>>>>>> [JWT-login #143412449] Lint files and add method for token attachment to users.js
   if (req.body && req.user && req.user._id) {
     // Verify that the object contains crowdrise data
     if (req.body.amount && req.body.crowdrise_donation_id && req.body.donor_name) {
@@ -128,7 +180,11 @@ exports.addDonation = (req, res) => {
       .exec((err, user) => {
         // Confirm that this object hasn't already been entered
         let duplicate = false;
+<<<<<<< HEAD
         for (let i = 0; i < user.donations.length; i += 1) {
+=======
+        for (let i = 0; i < user.donations.length; i++) {
+>>>>>>> [JWT-login #143412449] Lint files and add method for token attachment to users.js
           if (user.donations[i].crowdrise_donation_id === req.body.crowdrise_donation_id) {
             duplicate = true;
           }
@@ -144,8 +200,13 @@ exports.addDonation = (req, res) => {
   res.send();
 };
 
+<<<<<<< HEAD
 // Show user profile
 exports.show = (req, res) => {
+=======
+// Show profile
+exports.show = function (req, res) {
+>>>>>>> [JWT-login #143412449] Lint files and add method for token attachment to users.js
   const user = req.profile;
 
   res.render('users/show', {
@@ -155,12 +216,20 @@ exports.show = (req, res) => {
 };
 
 // Send User
+<<<<<<< HEAD
 exports.me = (req, res) => {
+=======
+exports.me = function (req, res) {
+>>>>>>> [JWT-login #143412449] Lint files and add method for token attachment to users.js
   res.jsonp(req.user || null);
 };
 
 // Find user by id
+<<<<<<< HEAD
 exports.user = (req, res, next, id) => {
+=======
+exports.user = function (req, res, next, id) {
+>>>>>>> [JWT-login #143412449] Lint files and add method for token attachment to users.js
   User
     .findOne({
       _id: id
@@ -173,6 +242,7 @@ exports.user = (req, res, next, id) => {
     });
 };
 
+<<<<<<< HEAD
  // Attach token to user credentials after authentication
 exports.loginWithEmail = (req, res) => {
   User
@@ -191,5 +261,30 @@ exports.loginWithEmail = (req, res) => {
       });
       user.password = null;
       res.status(200).json(Object.assign({}, user._id, user.name, user.email, { token }));
+=======
+exports.loginWithEmail = function (req, res) {
+  // get the user credentials from form  req.body.password
+  // req.body.email
+  // console.log(req.body);
+  User
+    .findOne({ email: req.body.email })
+    .then((user) => {
+      // compare the password
+      if (!user) {
+        res.json({ success: false, message: 'authentication failed' });
+      } else if (user.authenticate(req.body.password)) {
+        // console.log("mimi");
+        const token = user.generateJwt();
+        // jwt.sign(user, app.get('secret'), {
+        //   expiresInMinutes: 1400
+        // });
+        res.json({
+          success: true,
+          token
+        });
+      } else {
+        res.json({ success: false, message: ' 1 authentication failed' });
+      }
+>>>>>>> [JWT-login #143412449] Lint files and add method for token attachment to users.js
     });
 };
