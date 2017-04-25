@@ -956,6 +956,10 @@ body{
                                             font-size: 1rem;
                                         }
                                     }
+                                    #min-players-container {
+
+                                        color: #333;
+                                    }
 
                                     #start-game-button:hover{
                                        background:#41C2CA;
@@ -1325,5 +1329,3 @@ body{
         border-top: 0px solid black !important;
     }
 }
-
-
