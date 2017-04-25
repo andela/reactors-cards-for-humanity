@@ -1,5 +1,6 @@
 angular.module('mean.system')
-.controller('GameController', ['$scope', 'game', '$timeout', '$location', 'MakeAWishFactsService', '$dialog', function ($scope, game, $timeout, $location, MakeAWishFactsService, $dialog) {
+
+.controller('GameController', ['$scope', 'game', '$timeout','$location', 'MakeAWishFactsService', '$dialog', function ($scope, game, $timeout, $location, MakeAWishFactsService, $dialog) {
     $scope.hasPickedCards = false;
     $scope.winningCardPicked = false;
     $scope.showTable = false;
@@ -121,7 +122,11 @@ angular.module('mean.system')
     };
 
     $scope.startGame = function() {
-      game.startGame();
+      if (game.players.length < 3){
+        swal("Cannot start game", "Users have to be three or more");
+      } else {
+        game.startGame();
+      }
     };
 
     $scope.abandonGame = function() {
