@@ -8,6 +8,7 @@
 /* eslint no-unused-vars: ["error", { "argsIgnorePattern": "^_" }]*/
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Module dependencies.
 const mongoose = require('mongoose');
 
@@ -25,6 +26,9 @@ exports.authCallback = (req, res) => {
 /**
  * Module dependencies.
  */
+=======
+// Module dependencies.
+>>>>>>> [JWT-login #143412449] Lint, restructure and add comments to routes.js . Replace JSDOC with comment in users.js
 const mongoose = require('mongoose');
 
 const User = mongoose.model('User');
