@@ -17,7 +17,7 @@ const config = require('./config');
 module.exports = (app, passport, mongoose) => {
   app.set('showStackError', true);
 
-    // Should be placed before express.static
+  // Should be placed before express.static
   app.use(compression({
     filter(req, res) {
       return (/json|text|javascript|css/).test(res.getHeader('Content-Type'));
@@ -29,12 +29,12 @@ module.exports = (app, passport, mongoose) => {
   // app.use(favicon());
   app.use(express.static(`${config.root}/public`));
 
-    // Don't use logger for test env
+  // Don't use logger for test env
   if (process.env.NODE_ENV !== 'test') {
     app.use(logger('dev'));
   }
 
-    // Set views path, template engine and default layout
+  // Set views path, template engine and default layout
   app.set('views', `${config.root}/app/views`);
   app.set('view engine', 'jade');
 
@@ -46,16 +46,15 @@ module.exports = (app, passport, mongoose) => {
   app.use(cookieParser());
 
   // bodyParser should be above methodOverride
-  // parse application/x-www-form-urlencoded
-  app.use(bodyParser.urlencoded({ extended: false }));
-
-// parse application/json
   app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ extended: true }));
   app.use(methodOverride());
 
   // express/mongo session storage
   app.use(session({
     secret: 'MEAN',
+    resave: true,
+    saveUninitialized: true,
     store: new mongoStore({
       url: config.db,
       collection: 'sessions',
@@ -78,7 +77,7 @@ module.exports = (app, passport, mongoose) => {
 
   // Assume "not found" in the error msgs is a 404. this is somewhat silly, but valid, you can do whatever you like, set properties, use instanceof etc.
   app.use((err, req, res, next) => {
-            // Treat as 404
+    // Treat as 404
     if (err.message.indexOf('not found')) return next();
 
     // Log it
