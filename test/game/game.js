@@ -1,5 +1,4 @@
 // const should = require('should');
-
 const io = require('socket.io-client');
 
 const socketURL = 'http://localhost:3000';
@@ -49,12 +48,12 @@ describe('Game Server', () => {
       client2.disconnect();
       done();
     };
-    client1.on('connect', () => {
+    client1.on('connect', (data) => {
       client1.emit('joinGame', { userID: 'unauthenticated', room: '', createPrivate: false });
       client2 = io.connect(socketURL, options);
       client2.on('connect', () => {
         client2.emit('joinGame', { userID: 'unauthenticated', room: '', createPrivate: false });
-        client1.on('notification', (data) => {
+        client1.on('notification', () => {
           data.notification.should.match(/ has joined the game!/);
         });
       });
@@ -63,8 +62,8 @@ describe('Game Server', () => {
   });
 
   it('Should start game when startGame event is sent with 3 players', (done) => {
-    const client1 = io.connect(socketURL, options);
-    let client2, client3;
+    let client1, client2, client3;
+    client1 = io.connect(socketURL, options);
     const disconnect = () => {
       client1.disconnect();
       client2.disconnect();
@@ -99,8 +98,8 @@ describe('Game Server', () => {
   });
 
   it('Should automatically start game when 6 players are in a game', (done) => {
-    const client1 = io.connect(socketURL, options);
-    let client2, client3, client4, client5, client6;
+    let client1, client2, client3, client4, client5, client6;
+    client1 = io.connect(socketURL, options);
     const disconnect = () => {
       client1.disconnect();
       client2.disconnect();
