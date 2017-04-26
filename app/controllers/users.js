@@ -1,21 +1,23 @@
-/**
- * Module dependencies.
- */
-var mongoose = require('mongoose'),
-  User = mongoose.model('User');
-var avatars = require('./avatars').all();
+/* global next:true*/
+/* eslint no-undef: "error"*/
+/* eslint no-underscore-dangle: ["error", { "allow": ["_id"]}]*/
+/* eslint no-unused-vars: ["error", { "argsIgnorePattern": "^_" }]*/
 
-/**
- * Auth callback
- */
-exports.authCallback = function(req, res, next) {
+// Module dependencies.
+const mongoose = require('mongoose'),
+
+  User = mongoose.model('User'),
+  avatars = require('./avatars').all(),
+  jwt = require('jsonwebtoken'),
+  secretKey = process.env.SECRET_KEY;
+
+// Auth callback
+exports.authCallback = (req, res) => {
   res.redirect('/chooseavatars');
 };
 
-/**
- * Show login form
- */
-exports.signin = function(req, res) {
+// Show login form
+exports.signin = (req, res) => {
   if (!req.user) {
     res.redirect('/#!/signin?error=invalid');
   } else {
@@ -23,10 +25,8 @@ exports.signin = function(req, res) {
   }
 };
 
-/**
- * Show sign up form
- */
-exports.signup = function(req, res) {
+// Show sign up form
+exports.signup = (req, res) => {
   if (!req.user) {
     res.redirect('/#!/signup');
   } else {
@@ -34,32 +34,28 @@ exports.signup = function(req, res) {
   }
 };
 
-/**
- * Logout
- */
-exports.signout = function(req, res) {
+// Logout
+exports.signout = (req, res) => {
   req.logout();
   res.redirect('/');
 };
 
-/**
- * Session
- */
-exports.session = function(req, res) {
+// Session
+exports.session = (req, res) => {
   res.redirect('/');
 };
 
-/** 
+/*
  * Check avatar - Confirm if the user who logged in via passport
  * already has an avatar. If they don't have one, redirect them
  * to our Choose an Avatar page.
  */
-exports.checkAvatar = function(req, res) {
+exports.checkAvatar = (req, res) => {
   if (req.user && req.user._id) {
     User.findOne({
       _id: req.user._id
     })
-    .exec(function(err, user) {
+    .exec((err, user) => {
       if (user.avatar !== undefined) {
         res.redirect('/#!/');
       } else {
@@ -70,30 +66,27 @@ exports.checkAvatar = function(req, res) {
     // If user doesn't even exist, redirect to /
     res.redirect('/');
   }
-
 };
 
-/**
- * Create user
- */
-exports.create = function(req, res) {
+// Create user
+exports.create = (req, res) => {
   if (req.body.name && req.body.password && req.body.email) {
     User.findOne({
       email: req.body.email
-    }).exec(function(err,existingUser) {
+    }).exec((err, existingUser) => {
       if (!existingUser) {
-        var user = new User(req.body);
+        const user = new User(req.body);
         // Switch the user's avatar index to an actual avatar url
         user.avatar = avatars[user.avatar];
         user.provider = 'local';
-        user.save(function(err) {
+        user.save((err) => {
           if (err) {
             return res.render('/#!/signup?error=unknown', {
               errors: err.errors,
-              user: user
+              user
             });
           }
-          req.logIn(user, function(err) {
+          req.logIn(user, (err) => {
             if (err) return next(err);
             return res.redirect('/#!/');
           });
@@ -107,17 +100,15 @@ exports.create = function(req, res) {
   }
 };
 
-/**
- * Assign avatar to user
- */
-exports.avatars = function(req, res) {
+// Assign avatar to user
+exports.avatars = (req, res) => {
   // Update the current user's profile to include the avatar choice they've made
   if (req.user && req.user._id && req.body.avatar !== undefined &&
     /\d/.test(req.body.avatar) && avatars[req.body.avatar]) {
     User.findOne({
       _id: req.user._id
     })
-    .exec(function(err, user) {
+    .exec((err, user) => {
       user.avatar = avatars[req.body.avatar];
       user.save();
     });
@@ -125,23 +116,22 @@ exports.avatars = function(req, res) {
   return res.redirect('/#!/app');
 };
 
-exports.addDonation = function(req, res) {
+exports.addDonation = (req, res) => {
   if (req.body && req.user && req.user._id) {
     // Verify that the object contains crowdrise data
     if (req.body.amount && req.body.crowdrise_donation_id && req.body.donor_name) {
       User.findOne({
         _id: req.user._id
       })
-      .exec(function(err, user) {
+      .exec((err, user) => {
         // Confirm that this object hasn't already been entered
-        var duplicate = false;
-        for (var i = 0; i < user.donations.length; i++ ) {
+        let duplicate = false;
+        for (let i = 0; i < user.donations.length; i += 1) {
           if (user.donations[i].crowdrise_donation_id === req.body.crowdrise_donation_id) {
             duplicate = true;
           }
         }
         if (!duplicate) {
-          console.log('Validated donation');
           user.donations.push(req.body);
           user.premium = 1;
           user.save();
@@ -152,37 +142,70 @@ exports.addDonation = function(req, res) {
   res.send();
 };
 
-/**
- *  Show profile
- */
-exports.show = function(req, res) {
-  var user = req.profile;
+// Show user profile
+exports.show = (req, res) => {
+  const user = req.profile;
 
   res.render('users/show', {
     title: user.name,
-    user: user
+    user
   });
 };
 
-/**
- * Send User
- */
-exports.me = function(req, res) {
+// Send User
+exports.me = (req, res) => {
   res.jsonp(req.user || null);
 };
 
-/**
- * Find user by id
- */
-exports.user = function(req, res, next, id) {
+// Find user by id
+exports.user = (req, res, next, id) => {
   User
     .findOne({
       _id: id
     })
-    .exec(function(err, user) {
+    .exec((err, user) => {
       if (err) return next(err);
-      if (!user) return next(new Error('Failed to load User ' + id));
+      if (!user) return next(new Error(`Failed to load User ${id}`));
       req.profile = user;
       next();
+    });
+};
+
+exports.signupWithEmail = (req, res) => {
+  User
+    .findOne({ email: req.body.email })
+    .then((existingUser, err) => {
+      if (err) throw err;
+      if (existingUser) {
+        return res.json({ message: 'A user with this email address already exists' });
+      }
+      const token = jwt.sign(existingUser._id, secretKey, {
+        expiresIn: '24h'
+      });
+
+      existingUser.password = null;
+      res.status(200).json(Object.assign({},
+      existingUser._id, existingUser.name, existingUser.email, { token }));
+    });
+};
+
+ // Attach token to user credentials after authentication
+exports.loginWithEmail = (req, res) => {
+  User
+    .findOne({ email: req.body.email })
+    .then((user) => {
+      if (!user) {
+        return res.status(401).json({ message: 'User not found' });
+      }
+      if (!user.authenticate(req.body.password)) {
+        return res.status(401).json({
+          message: 'Invalid password'
+        });
+      }
+      const token = jwt.sign(user._id, secretKey, {
+        expiresIn: '24h'
+      });
+      user.password = null;
+      res.status(200).json(Object.assign({}, user._id, user.name, user.email, { token }));
     });
 };
