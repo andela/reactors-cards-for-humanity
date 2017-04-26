@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/andela/reactors-cards-for-humanity.svg?branch=travisci-badge)](https://travis-ci.org/andela/reactors-cards-for-humanity) [![Coverage Status](https://coveralls.io/repos/github/andela/reactors-cards-for-humanity/badge.svg?branch=chore/143412447/integrate-coveralls)](https://coveralls.io/github/andela/reactors-cards-for-humanity?branch=chore/143412447/integrate-coveralls)
+[![Build Status](https://travis-ci.org/andela/reactors-cards-for-humanity.svg?branch=travisci-badge)](https://travis-ci.org/andela/reactors-cards-for-humanity)
 
 -Cards for Humanity - [http://cfh.io](http://cfh.io)
 ===========
