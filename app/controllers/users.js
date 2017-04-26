@@ -1,9 +1,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> [JWT-login #143412449] Correct style errors using ESLint. Add exceptions and comments on users.js
 /* global next:true*/
 /* eslint no-undef: "error"*/
+=======
+
+>>>>>>> [JWT-login #143412449] Update package.json and add new check for empty  credential entries on users.js
 /* eslint no-underscore-dangle: ["error", { "allow": ["_id"]}]*/
 /* eslint no-unused-vars: ["error", { "argsIgnorePattern": "^_" }]*/
 
@@ -151,8 +155,12 @@ exports.create = function (req, res) {
 >>>>>>> [JWT-login #143412449] Lint files and add method for token attachment to users.js
 =======
 // Create user
+<<<<<<< HEAD
 exports.create = (req, res) => {
 >>>>>>> [JWT-login #143412449] Correct style errors using ESLint. Add exceptions and comments on users.js
+=======
+exports.create = (req, res, next) => {
+>>>>>>> [JWT-login #143412449] Update package.json and add new check for empty  credential entries on users.js
   if (req.body.name && req.body.password && req.body.email) {
     User.findOne({
       email: req.body.email
@@ -335,7 +343,13 @@ exports.loginWithEmail = function (req, res) {
 =======
  // Attach token to user credentials after authentication
 exports.loginWithEmail = (req, res) => {
+<<<<<<< HEAD
 >>>>>>> [JWT-login #143412449] Correct style errors using ESLint. Add exceptions and comments on users.js
+=======
+  if (req.body.email === '' || req.body.password === '') {
+    return res.status(401).json({ message: 'The email and password fields cannot be empty'});
+  }
+>>>>>>> [JWT-login #143412449] Update package.json and add new check for empty  credential entries on users.js
   User
     .findOne({ email: req.body.email })
     .then((user) => {
