@@ -15,14 +15,14 @@ module.exports = (config) => {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine', 'es6-shim'],
+    frameworks: ['jasmine'],
 
     plugins: [
       'karma-chrome-launcher',
       'karma-jasmine',
       'karma-coveralls',
       'karma-coverage',
-      'karma-es6-shim',
+      'eslint-plugin-jasmine',
       'karma-babel-preprocessor'
     ],
 
@@ -33,7 +33,7 @@ module.exports = (config) => {
       './public/js/services/*.js',
       './public/js/controllers/*.js',
       './public/js/directives.js',
-      './test/mock_test/**/*.js'
+      './test/client/**/*.js'
     ],
 
 
@@ -44,7 +44,7 @@ module.exports = (config) => {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
 
     preprocessors: {
-      'src/test/**/*/*.js': ['babel'],
+      'src/test/client/**/*/*.js': ['babel'],
       'src/public/**/*/*.js': ['coverage']
     },
 
