@@ -1,5 +1,4 @@
-/* global next:true*/
-/* eslint no-undef: "error"*/
+
 /* eslint no-underscore-dangle: ["error", { "allow": ["_id"]}]*/
 /* eslint no-unused-vars: ["error", { "argsIgnorePattern": "^_" }]*/
 
@@ -69,7 +68,7 @@ exports.checkAvatar = (req, res) => {
 };
 
 // Create user
-exports.create = (req, res) => {
+exports.create = (req, res, next) => {
   if (req.body.name && req.body.password && req.body.email) {
     User.findOne({
       email: req.body.email
@@ -173,6 +172,9 @@ exports.user = (req, res, next, id) => {
 
  // Attach token to user credentials after authentication
 exports.loginWithEmail = (req, res) => {
+  if (req.body.email === '' || req.body.password === '') {
+    return res.status(401).json({ message: 'The email and password fields cannot be empty'});
+  }
   User
     .findOne({ email: req.body.email })
     .then((user) => {
