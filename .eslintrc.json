@@ -1,10 +1,12 @@
-  {
+ {
     "root": true,
-    "extends": "airbnb-base",
+    "extends": ["airbnb-base"],
+    "plugin": ["jasmine","angular","mocha"],
     "env": {
       "node": true,
       "es6": true,
-      "mocha": true
+      "mocha": true,
+      "jasmine": true
     },
     "rules": {
       "one-var": 0,
@@ -13,6 +15,7 @@
       "consistent-return": 0,
       "no-param-reassign": 0,
       "comma-dangle": 0,
+      
       "curly": [
         "error",
         "multi-line"
