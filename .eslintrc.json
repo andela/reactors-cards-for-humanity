@@ -1,7 +1,12 @@
  {
     "root": true,
+<<<<<<< HEAD
     "extends": ["airbnb-base"],
     "plugin": ["jasmine","angular","mocha"],
+=======
+    "extends": ["airbnb"],
+    "plugin": "jasmine",
+>>>>>>> [Chore #143412443]Add jasmine plugin to eslint
     "env": {
       "node": true,
       "es6": true,

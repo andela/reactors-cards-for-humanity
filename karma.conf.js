@@ -16,7 +16,9 @@ module.exports = (config) => {
       'karma-chrome-launcher',
       'karma-jasmine',
       'karma-coveralls',
-      'karma-coverage'
+      'karma-coverage',
+      'eslint-plugin-jasmine',
+      'karma-babel-preprocessor'
     ],
 
     // list of files / patterns to load in the browser
@@ -39,6 +41,8 @@ module.exports = (config) => {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'src/test/client/**/*/*.js': ['babel'],
+      'src/public/**/*/*.js': ['coverage']
     },
 
 
