@@ -4,13 +4,12 @@
 /* eslint no-unused-vars: ["error", { "argsIgnorePattern": "^_" }]*/
 
 // Module dependencies.
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'),
 
-const User = mongoose.model('User');
-const avatars = require('./avatars').all();
-const jwt = require('jsonwebtoken');
-
-const secretKey = process.env.SECRET_KEY;
+  User = mongoose.model('User'),
+  avatars = require('./avatars').all(),
+  jwt = require('jsonwebtoken'),
+  secretKey = process.env.SECRET_KEY;
 
 // Auth callback
 exports.authCallback = (req, res) => {

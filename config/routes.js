@@ -1,9 +1,9 @@
 // Module dependencies.
-const users = require('../app/controllers/users');
-const answers = require('../app/controllers/answers');
-const questions = require('../app/controllers/questions');
-const avatars = require('../app/controllers/avatars');
-const index = require('../app/controllers/index');
+const users = require('../app/controllers/users'),
+  answers = require('../app/controllers/answers'),
+  questions = require('../app/controllers/questions'),
+  avatars = require('../app/controllers/avatars'),
+  index = require('../app/controllers/index');
 
 module.exports = (app, passport) => {
   // User Routes
