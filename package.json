@@ -19,6 +19,7 @@
     "test:frontend": "karma start",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "postinstall": "gulp bower"
+
   },
   "dependencies": {
     "async": "~2.3.0",
