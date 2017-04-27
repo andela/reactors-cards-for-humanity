@@ -22,6 +22,7 @@
 //             });
 
 //             user.save(function(err) {
+//             user.save(function(err) {
 //                 article = new Article({
 //                     title: 'Article Title',
 //                     content: 'Article Content',
@@ -54,4 +55,5 @@
 //             done();
 //         });
 //     });
+// });
 // });

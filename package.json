@@ -17,7 +17,7 @@
     "test": "istanbul cover gulp test",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "postinstall": "gulp bower"
-  },
+    },
   "dependencies": {
     "async": "~2.3.0",
     "bcryptjs": "~2.4.3",
@@ -67,6 +67,8 @@
     "bower": "^1.8.0",
     "browserify": "^14.3.0",
     "coveralls": "^2.13.0",
+    "bower": "^1.8.0",    
+    "browser-sync": "^2.18.8",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-config-airbnb-base": "^11.1.3",
