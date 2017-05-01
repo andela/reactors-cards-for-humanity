@@ -1,33 +1,11 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 /* eslint no-underscore-dangle: ["error", { "allow": ["_password"]}]*/
 /* eslint no-unused-vars: ["error", { "argsIgnorePattern": "^_" }]*/
 
->>>>>>> [Feature #143412449] Lint files contollers/users.js models/user.js and passport.js
 // Module dependencies.
 const mongoose = require('mongoose'),
   Schema = mongoose.Schema,
   bcrypt = require('bcryptjs'),
   authTypes = ['github', 'twitter', 'facebook', 'google'];
-<<<<<<< HEAD
-  // const jwt = require('jsonwebtoken');
-    // MY_SECRET = require('../../apiproperties');
-=======
-/**
- * Module dependencies.
- */
-var mongoose = require('mongoose'),
-    Schema = mongoose.Schema,
-    bcrypt = require('bcryptjs'),
-    _ = require('underscore'),
-    authTypes = ['github', 'twitter', 'facebook', 'google'],
-    jwt = require('jsonwebtoken');
-    MY_SECRET = require('../../apiproperties');
->>>>>>> [JWT-login #143412449] Generate JWT token
-
-=======
->>>>>>> [Feature #143412449] Lint files contollers/users.js models/user.js and passport.js
 
 // User Schema
 const UserSchema = new Schema({
@@ -98,25 +76,12 @@ UserSchema.methods = {
      * @return {Boolean} comparison of plainText and hashed password
      * @api public
      */
-<<<<<<< HEAD
   authenticate(plainText) {
     if (!plainText || !this.hashedPassword) {
       return false;
     }
     return bcrypt.compareSync(plainText, this.hashedPassword);
   },
-=======
-    authenticate: function(plainText) {
-        if (!plainText || !this.hashed_password) {
-            return false;
-        }
-        if (bcrypt.compareSync(plainText,this.hashed_password)) {
-            this.generateJwt();
-            return true;
-        }
-        return false;
-    },
->>>>>>> [JWT-login #143412449] Generate JWT token
 
     /**
      * Encrypt password
@@ -125,32 +90,10 @@ UserSchema.methods = {
      * @return {String} hashed password
      * @api public
      */
-<<<<<<< HEAD
   encryptPassword(password) {
     if (!password) return '';
     return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
   },
-<<<<<<< HEAD
-=======
-    encryptPassword: function(password) {
-        if (!password) return '';
-        return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
-    },
-
-    generateJwt: function() {
-        var expiry = new Date();
-        expiry.setDate(expiry.getDate() + 7);
-
-        return jwt.sign({
-            _id: this._id,
-            // email: this.email,
-            // name: this.name,
-            exp: parseInt(expiry.getTime() / 1000),
-        },      'jndvfeufNNoiwjdsadnowijd');
-    }
->>>>>>> [JWT-login #143412449] Generate JWT token
-=======
->>>>>>> [JWT-login #143412449] Update path and method to add jwt token on successful signin
 };
 
 mongoose.model('User', UserSchema);
