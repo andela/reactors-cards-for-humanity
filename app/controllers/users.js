@@ -172,9 +172,11 @@ exports.user = (req, res, next, id) => {
 
  // Attach token to user credentials after authentication
 exports.loginWithEmail = (req, res) => {
+  // Check if the email and passord fields are empty
   if (req.body.email === '' || req.body.password === '') {
     return res.status(401).json({ message: 'The email and password fields cannot be empty' });
   } else if (!(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(req.body.email))) {
+    // Check that the correct password format is entered
     return res.status(401).json({ message: 'Please enter a valid email format' });
   }
   User
@@ -188,9 +190,11 @@ exports.loginWithEmail = (req, res) => {
           message: 'Invalid password'
         });
       }
+      // Generate and assign token to authenticated user
       const token = jwt.sign(user._id, secretKey, {
         expiresIn: '24h'
       });
+      // Send token
       user.password = null;
       res.status(200).json(Object.assign({}, user._id, user.name, user.email, { token }));
     });
