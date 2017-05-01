@@ -344,11 +344,16 @@ exports.loginWithEmail = function (req, res) {
  // Attach token to user credentials after authentication
 exports.loginWithEmail = (req, res) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> [JWT-login #143412449] Correct style errors using ESLint. Add exceptions and comments on users.js
 =======
+=======
+  // Check if the email and passord fields are empty
+>>>>>>> [Feature #143412449] Lint files contollers/users.js models/user.js and passport.js
   if (req.body.email === '' || req.body.password === '') {
     return res.status(401).json({ message: 'The email and password fields cannot be empty' });
   } else if (!(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(req.body.email))) {
+    // Check that the correct password format is entered
     return res.status(401).json({ message: 'Please enter a valid email format' });
   }
 >>>>>>> [JWT-login #143412449] Update package.json and add new check for empty  credential entries on users.js
@@ -364,11 +369,16 @@ exports.loginWithEmail = (req, res) => {
         });
       }
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> [JWT-login #143412449] Lint files and add method for token attachment to users.js
 =======
+=======
+      // Generate and assign token to authenticated user
+>>>>>>> [Feature #143412449] Lint files contollers/users.js models/user.js and passport.js
       const token = jwt.sign(user._id, secretKey, {
         expiresIn: '24h'
       });
+      // Send token
       user.password = null;
       res.status(200).json(Object.assign({}, user._id, user.name, user.email, { token }));
 >>>>>>> [JWT-login #143412449] Update path and method to add jwt token on successful signin
