@@ -347,7 +347,9 @@ exports.loginWithEmail = (req, res) => {
 >>>>>>> [JWT-login #143412449] Correct style errors using ESLint. Add exceptions and comments on users.js
 =======
   if (req.body.email === '' || req.body.password === '') {
-    return res.status(401).json({ message: 'The email and password fields cannot be empty'});
+    return res.status(401).json({ message: 'The email and password fields cannot be empty' });
+  } else if (!(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(req.body.email))) {
+    return res.status(401).json({ message: 'Please enter a valid email format' });
   }
 >>>>>>> [JWT-login #143412449] Update package.json and add new check for empty  credential entries on users.js
   User
