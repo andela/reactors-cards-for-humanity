@@ -173,7 +173,9 @@ exports.user = (req, res, next, id) => {
  // Attach token to user credentials after authentication
 exports.loginWithEmail = (req, res) => {
   if (req.body.email === '' || req.body.password === '') {
-    return res.status(401).json({ message: 'The email and password fields cannot be empty'});
+    return res.status(401).json({ message: 'The email and password fields cannot be empty' });
+  } else if (!(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(req.body.email))) {
+    return res.status(401).json({ message: 'Please enter a valid email format' });
   }
   User
     .findOne({ email: req.body.email })
