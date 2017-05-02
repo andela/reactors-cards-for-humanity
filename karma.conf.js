@@ -3,6 +3,11 @@
 
 module.exports = (config) => {
   config.set({
+    coverageReporter: {
+      instrumenterOptions: {
+        istanbul: { noCompact: true }
+      }
+    },
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
@@ -40,6 +45,7 @@ module.exports = (config) => {
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+
     preprocessors: {
       'src/test/client/**/*/*.js': ['babel'],
       'src/public/**/*/*.js': ['coverage']
@@ -49,7 +55,8 @@ module.exports = (config) => {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+
+    reporters: ['progress', 'coverage', 'coveralls'],
 
 
     // web server port
@@ -63,7 +70,6 @@ module.exports = (config) => {
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN
     // || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
 
 
     // enable / disable watching file and executing tests whenever any file changes
