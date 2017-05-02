@@ -3,7 +3,7 @@
  */
 const should = require('should');
 
-// const app = require('../../server');
+const app = require('../../server');
 
 const mongoose = require('mongoose');
 
