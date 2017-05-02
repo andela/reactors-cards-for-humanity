@@ -33,7 +33,7 @@ module.exports = (config) => {
       './public/js/services/*.js',
       './public/js/controllers/*.js',
       './public/js/directives.js',
-      './test/client/*/.js'
+      './test/client/*.js'
     ],
 
 
