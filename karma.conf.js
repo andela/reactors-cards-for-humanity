@@ -33,8 +33,7 @@ module.exports = (config) => {
       './public/js/services/*.js',
       './public/js/controllers/*.js',
       './public/js/directives.js',
-      './test/**/*/.js',
-      './test/mock_test/sum.spec.js'
+      './test/client/*/.js'
     ],
 
 
@@ -47,8 +46,7 @@ module.exports = (config) => {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
 
     preprocessors: {
-      'src/test/client/**/*/*.js': ['babel'],
-      'src/public/**/*/*.js': ['coverage']
+      'src/test/client/**/*/*.js': ['babel']
     },
 
 
