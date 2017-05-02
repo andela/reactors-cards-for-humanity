@@ -18,6 +18,9 @@ const config = require('./config/config'),
   auth = require('./config/middlewares/authorization'),
   mongoose = require('mongoose');
 
+// Bootstrap db connection
+const db = mongoose.connect(config.db);
+
 // Bootstrap models
 const modelsPath = `${__dirname}/app/models`;
 const walk = (path) => {
