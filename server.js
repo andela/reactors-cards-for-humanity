@@ -14,18 +14,13 @@ const express = require('express'),
  */
 
 // Load configurations
-// if test env, load example file
-const env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
-  config = require('./config/config'),
+const config = require('./config/config'),
   auth = require('./config/middlewares/authorization'),
   mongoose = require('mongoose');
 
-// Bootstrap db connection
-const db = mongoose.connect(config.db);
-
 // Bootstrap models
-const models_path = `${__dirname}/app/models`;
-const walk = function (path) {
+const modelsPath = `${__dirname}/app/models`;
+const walk = (path) => {
   fs.readdirSync(path).forEach((file) => {
     const newPath = `${path}/${file}`;
     const stat = fs.statSync(newPath);
@@ -38,7 +33,7 @@ const walk = function (path) {
     }
   });
 };
-walk(models_path);
+walk(modelsPath);
 
 // bootstrap passport config
 require('./config/passport')(passport);
@@ -68,4 +63,4 @@ console.log(`Express app started on port ${port}`);
 logger.init(app, passport, mongoose);
 
 // expose app
-exports = module.exports = app;
+module.exports = app;
