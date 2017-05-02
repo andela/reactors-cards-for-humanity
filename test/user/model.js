@@ -1,47 +1,48 @@
 /**
  * Module dependencies.
  */
-var should = require('should'),
-    app = require('../../server'),
-    mongoose = require('mongoose'),
-    User = mongoose.model('User');
+const should = require('should');
 
-//Globals
-var user;
+// const app = require('../../server');
 
-//The tests
-describe('<Unit Test>', function() {
-    describe('Model User:', function() {
-        before(function(done) {
-            user = new User({
-                name: 'Full name',
-                email: 'test@test.com',
-                username: 'user',
-                password: 'password'
-            });
+const mongoose = require('mongoose');
 
-            done();
-        });
+const User = mongoose.model('User');
 
-        describe('Method Save', function() {
-            it('should be able to save whithout problems', function(done) {
-                return user.save(function(err) {
-                    should.not.exist(err);
-                    done();
-                });
-            });
+// Globals
+let user;
 
-            it('should be able to show an error when try to save without name', function(done) {
-                user.name = '';
-                return user.save(function(err) {
-                    should.exist(err);
-                    done();
-                });
-            });
-        });
+// The tests
+describe('<Unit Test>', () => {
+  describe('Model User:', () => {
+    before((done) => {
+      user = new User({
+        name: 'Full name',
+        email: 'test@test.com',
+        username: 'user',
+        password: 'password'
+      });
 
-        after(function(done) {
-            done();
-        });
+      done();
     });
+
+    describe('Method Save', () => {
+      it('should be able to save whithout problems', done => user.save((err) => {
+        should.not.exist(err);
+        done();
+      }));
+
+      it('should be able to show an error when try to save without name', (done) => {
+        user.name = '';
+        return user.save((err) => {
+          should.exist(err);
+          done();
+        });
+      });
+    });
+
+    after((done) => {
+      done();
+    });
+  });
 });
