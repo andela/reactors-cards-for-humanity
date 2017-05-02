@@ -1,25 +1,11 @@
-const async = require('async');
-<<<<<<< HEAD
-const express = require('express');
-const UserSchema = require('../app/models/user');
-const index = require('../app/controllers/index');
+const users = require('../app/controllers/users');
 const answers = require('../app/controllers/answers');
 const questions = require('../app/controllers/questions');
 const avatars = require('../app/controllers/avatars');
-const users = require('../app/controllers/users');
-const mongoose = require('mongoose'),
-  User = mongoose.model('User');
-// const dev = require('../config/development');
-const port = process.env.PORT || 3000;
+const index = require('../app/controllers/index');
 
-module.exports = function (app, passport, auth) {
+module.exports = (app, passport, auth) => {
   // User Routes
-=======
-
-module.exports = function (app, passport, auth) {
-  // User Routes
-  const users = require('../app/controllers/users');
->>>>>>> [feature #143412453] limit max players
   app.get('/signin', users.signin);
   app.get('/signup', users.signup);
   app.get('/chooseavatars', users.checkAvatar);
@@ -29,12 +15,9 @@ module.exports = function (app, passport, auth) {
   app.post('/users', users.create);
   app.post('/users/avatars', users.avatars);
 
-<<<<<<< HEAD
-=======
   // searching for a user
   app.get('/api/search/users', auth.authSearch, users.search);
 
->>>>>>> [feature #143412453] limit max players
   // Donation Routes
   app.post('/donations', users.addDonation);
 
@@ -91,25 +74,21 @@ module.exports = function (app, passport, auth) {
   app.param('userId', users.user);
 
   // Answer Routes
-  const answers = require('../app/controllers/answers');
   app.get('/answers', answers.all);
   app.get('/answers/:answerId', answers.show);
   // Finish with setting up the answerId param
   app.param('answerId', answers.answer);
 
   // Question Routes
-  const questions = require('../app/controllers/questions');
   app.get('/questions', questions.all);
   app.get('/questions/:questionId', questions.show);
   // Finish with setting up the questionId param
   app.param('questionId', questions.question);
 
   // Avatar Routes
-  const avatars = require('../app/controllers/avatars');
   app.get('/avatars', avatars.allJSON);
 
   // Home route
-  const index = require('../app/controllers/index');
   app.get('/play', index.play);
   app.get('/', index.render);
 };
