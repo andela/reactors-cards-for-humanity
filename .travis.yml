@@ -9,8 +9,9 @@ env:
  - MONGOHQ_URL=mongodb://127.0.0.1/reactors
 after_script:
   - npm run coveralls
+script: node_modules/karma/bin/karma start karma.conf.js --single-run
 before_install:
  - export CHROME_BIN=chromium-browser
- 
+
 
  
