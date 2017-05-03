@@ -1,11 +1,17 @@
-// Module dependencies.
-const users = require('../app/controllers/users'),
-  answers = require('../app/controllers/answers'),
-  questions = require('../app/controllers/questions'),
-  avatars = require('../app/controllers/avatars'),
-  index = require('../app/controllers/index');
+const async = require('async');
+const express = require('express');
+const UserSchema = require('../app/models/user');
+const index = require('../app/controllers/index');
+const answers = require('../app/controllers/answers');
+const questions = require('../app/controllers/questions');
+const avatars = require('../app/controllers/avatars');
+const users = require('../app/controllers/users');
+const mongoose = require('mongoose'),
+  User = mongoose.model('User');
+// const dev = require('../config/development');
+const port = process.env.PORT || 3000;
 
-module.exports = (app, passport) => {
+module.exports = function (app, passport, auth) {
   // User Routes
   app.get('/signin', users.signin);
   app.get('/signup', users.signup);
@@ -71,30 +77,26 @@ module.exports = (app, passport) => {
   // Finish with setting up the userId param
   app.param('userId', users.user);
 
-  // Answer Routes
+
   app.get('/answers', answers.all);
   app.get('/answers/:answerId', answers.show);
-
   // Finish with setting up the answerId param
   app.param('answerId', answers.answer);
 
   // Question Routes
+
   app.get('/questions', questions.all);
   app.get('/questions/:questionId', questions.show);
-
   // Finish with setting up the questionId param
   app.param('questionId', questions.question);
 
-  // Avatar Routes
   app.get('/avatars', avatars.allJSON);
 
   // Home route
+
   app.get('/play', index.play);
   app.get('/', index.render);
 
-  // Attach token signup route
-  app.post('/api/auth/signup', users.signupWithEmail);
-
-  // Attach token login route
   app.post('/api/auth/login', users.loginWithEmail);
+  app.post('/api/auth/signup', users.jwtOnSignUp);
 };

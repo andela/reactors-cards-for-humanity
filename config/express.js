@@ -46,7 +46,11 @@ module.exports = (app, passport, mongoose) => {
   app.use(cookieParser());
 
   // bodyParser should be above methodOverride
-  app.use(bodyParser());
+  // parse application/x-www-form-urlencoded
+  app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+  app.use(bodyParser.json());
   app.use(methodOverride());
 
   // express/mongo session storage
