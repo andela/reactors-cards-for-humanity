@@ -2,6 +2,7 @@
     "root": true,
     "extends": ["airbnb-base"],
     "plugin": ["jasmine","angular","mocha"],
+
     "env": {
       "node": true,
       "es6": true,
@@ -57,4 +58,5 @@
       ]
     }
   }
+  
   
