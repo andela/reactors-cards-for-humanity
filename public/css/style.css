@@ -608,9 +608,9 @@
  }
 
  /**** Portfolio ****/
- .wpb-portfolio-body {
+ /*.wpb-portfolio-body {
 
- }
+ }*/
 
  .wpb-portfolio-body .wpb-teaser {
    min-height: 350px;
@@ -765,8 +765,8 @@
 
 
  /**** Single Portfolio Item ****/
- .wpb-single-portfolio {
- }
+ /*.wpb-single-portfolio {
+ }*/
 
  .wpb-single-portfolio .wpb-content-inner {
    padding: 0px;
