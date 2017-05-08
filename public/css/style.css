@@ -21,7 +21,10 @@
    position: relative;
    top: 5px;
 }
+.hero-header span{
+  color: cyan
 
+}
 #twitter-facebook{
    display: block;
 }
@@ -60,7 +63,8 @@
 }
 
 #facebook-share a{
-   color: #333;
+   color: black;
+
 }
 
 .some-text {
@@ -69,6 +73,7 @@
    max-width: 800px;
    margin: 0 30px;
 }
+
 
 #give {
    color: white;
@@ -240,7 +245,7 @@
  }
 
   .wpb-menu-container .wpb-main-menu li a:hover {
-   color: #2ECC71 !important;
+   color: cyan !important;
    -webkit-transition: color 0.5s ease;
    -moz-transition: color 0.5s ease;
    -ms-transition: color 0.5s ease;
@@ -320,7 +325,7 @@
  }
 
  .wpb-teaser .wpb-slogan h2 {
-   color: #fff;
+   color: black;
    font-weight: bold;
    font-size: 52px;
    text-transform: uppercase;
@@ -1132,9 +1137,9 @@
    }
 
     .wpb-teaser .wpb-slogan h2 {
-      color: #fff;
+      color: black;
       font-weight: bold;
-      font-size: 1.6em;
+      font-size: 1em;
       text-transform: uppercase;
       text-align: center;
       line-height: 24px;

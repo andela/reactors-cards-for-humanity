@@ -28,6 +28,7 @@ background-image: url(../img/background.jpg);
 background-image: url(../img/background.jpg);
 
 background-position: center;
+background-size: 1240px 800px;
 }
 
 // Both portrait and landscape
@@ -509,7 +510,7 @@ body{
             }
 
             #tweet-container{
-                float: right;
+                float: center;
                 padding-top: 10px;
                 width: 77px;
                 margin-right: 10px;
