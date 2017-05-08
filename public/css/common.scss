@@ -9,8 +9,8 @@ $mq-custom-wide : 1200px !default;
 
 $color-background: #fff;
 
-@mixin gradient-bg {
-/* IE10 Consumer Preview */
+// @mixin gradient-bg {
+// /* IE10 Consumer Preview */
 background-image: -ms-linear-gradient(top left, #0B394E 0%, #ABCE8D 100%);
 
 /* Mozilla Firefox */

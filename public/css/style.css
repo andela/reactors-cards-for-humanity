@@ -39,7 +39,7 @@
    background: white;
    border-radius: 3px;
    margin-left: 10px;
-   background-color: #f8f8f8;
+   background-color: black;
    background-image: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#dedede));
    background-image: -moz-linear-gradient(top,#fff,#dedede);
    background-image: -o-linear-gradient(top,#fff,#dedede);
@@ -49,7 +49,7 @@
    -moz-border-radius: 3px;
    -webkit-border-radius: 3px;
    border-radius: 3px;
-   color: #333;
+   color: white;
    font-weight: bold;
    text-shadow: 0 1px 0 rgba(255,255,255,.5);
    -webkit-user-select: none;
@@ -168,20 +168,20 @@
    font-size: 28px;
    font-family: 'Lobster', cursive;
    border-radius: 8px;
-   background: #252525;
+   /*background: #252525;*/
    padding: 5px 5px 5px 13px;
 }
 
 #first-word {
-   color: #7CE4E8;
+   color: black;
 }
 
 #second-word {
-   color: #FFFFA5;
+   color:black;
 }
 
 #third-word {
-   color: #FC575E;
+   color:black;
 }
 
 #warning-word {
@@ -295,7 +295,7 @@
    padding: 30px;
  }
 
- .wpb-teaser .background-opacity {
+ /*.wpb-teaser .background-opacity {
    position: absolute;
    top: 0;
    left: 0;
@@ -306,7 +306,7 @@
    background: #252525;
    border-radius: 8px;
    padding: 20px;
- }
+ }*/
 
  .wpb-teaser .container {
    position: relative;
@@ -389,8 +389,8 @@
    font-size: 2em;
    font-weight: 400;
    text-align: center;
-   color: white;
-   background: #C54141;
+   color:black;
+   background: cyan;
    margin-top: 3px;
    margin-bottom: 3px;
    margin-right: 10px;
@@ -489,7 +489,7 @@
    font-size: 18px;
    font-family: 'Lobster', cursive;
    border-radius: 8px;
-   background: #252525;
+   /*background: #252525;*/
    margin-left: 40px;
    overflow: hidden;
 }
