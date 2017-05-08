@@ -97,6 +97,6 @@ module.exports = function (app, passport, auth) {
   app.get('/play', index.play);
   app.get('/', index.render);
 
-  app.post('/api/auth/login', users.loginWithEmail);
-  app.post('/api/auth/signup', users.jwtOnSignUp);
+  app.post('/api/auth/login', users.loginWithJWT);
+  app.post('/api/auth/signup', users.signUpWithJWT);
 };

@@ -173,7 +173,7 @@ exports.user = (req, res, next, id) => {
     });
 };
 
-exports.jwtOnSignUp = (req, res) => {
+exports.signUpWithJWT = (req, res) => {
   if (req.body.name && req.body.password && req.body.email) {
     User.findOne({
       email: req.body.email
@@ -203,7 +203,7 @@ exports.jwtOnSignUp = (req, res) => {
     return res.status(401).json({ message: 'Name, email and password are required' });
   }
 };
-exports.loginWithEmail = (req, res) => {
+exports.loginWithJWT = (req, res) => {
     // Check if the email and passord fields are empty
   if (req.body.email === '' || req.body.password === '') {
     return res.status(401).json({ message: 'The email and password fields cannot be empty' });
