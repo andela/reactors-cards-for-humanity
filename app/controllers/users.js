@@ -5,17 +5,15 @@ const mongoose = require('mongoose'),
   User = mongoose.model('User');
 const avatars = require('./avatars').all();
 
-/**
- * Auth callback
- */
-exports.authCallback = function (req, res, next) {
+// Auth callback
+
+exports.authCallback = (req, res, next) => {
   res.redirect('/chooseavatars');
 };
 
-/**
- * Show login form
- */
-exports.signin = function (req, res) {
+// Show login form
+
+exports.signin = (req, res) => {
   if (!req.user) {
     res.redirect('/#!/signin?error=invalid');
   } else {
@@ -23,10 +21,9 @@ exports.signin = function (req, res) {
   }
 };
 
-/**
- * Show sign up form
- */
-exports.signup = function (req, res) {
+// how sign up form
+
+exports.signup = (req, res) => {
   if (!req.user) {
     res.redirect('/#!/signup');
   } else {
@@ -34,27 +31,24 @@ exports.signup = function (req, res) {
   }
 };
 
-/**
- * Logout
- */
-exports.signout = function (req, res) {
+// logout
+exports.signout = (req, res) => {
   req.logout();
   res.redirect('/');
 };
 
-/**
- * Session
- */
-exports.session = function (req, res) {
+// Session
+
+exports.session = (req, res) => {
   res.redirect('/');
 };
 
-/**
- * Check avatar - Confirm if the user who logged in via passport
- * already has an avatar. If they don't have one, redirect them
- * to our Choose an Avatar page.
- */
-exports.checkAvatar = function (req, res) {
+
+//  Check avatar - Confirm if the user who logged in via passport
+//  already has an avatar. If they don't have one, redirect them
+//  to our Choose an Avatar page.
+
+exports.checkAvatar = (req, res) => {
   if (req.user && req.user._id) {
     User.findOne({
       _id: req.user._id
@@ -72,10 +66,8 @@ exports.checkAvatar = function (req, res) {
   }
 };
 
-/**
- * Create user
- */
-exports.create = function (req, res) {
+// Create user
+exports.create = (req, res) => {
   if (req.body.name && req.body.password && req.body.email) {
     User.findOne({
       email: req.body.email
@@ -92,7 +84,7 @@ exports.create = function (req, res) {
               user
             });
           }
-          req.logIn(user, (err) => {
+          req.logIn(user, (err, next) => {
             if (err) return next(err);
             return res.redirect('/#!/');
           });
@@ -106,10 +98,9 @@ exports.create = function (req, res) {
   }
 };
 
-/**
- * Assign avatar to user
- */
-exports.avatars = function (req, res) {
+// Assign avatar to user
+
+exports.avatars = (req, res) => {
   // Update the current user's profile to include the avatar choice they've made
   if (req.user && req.user._id && req.body.avatar !== undefined &&
     /\d/.test(req.body.avatar) && avatars[req.body.avatar]) {
@@ -124,7 +115,7 @@ exports.avatars = function (req, res) {
   return res.redirect('/#!/app');
 };
 
-exports.addDonation = function (req, res) {
+exports.addDonation = (req, res) => {
   if (req.body && req.user && req.user._id) {
     // Verify that the object contains crowdrise data
     if (req.body.amount && req.body.crowdrise_donation_id && req.body.donor_name) {
@@ -151,10 +142,9 @@ exports.addDonation = function (req, res) {
   res.send();
 };
 
-/**
- *  Show profile
- */
-exports.show = function (req, res) {
+// Show profile
+
+exports.show = (req, res) => {
   const user = req.profile;
 
   res.render('users/show', {
@@ -163,17 +153,15 @@ exports.show = function (req, res) {
   });
 };
 
-/**
- * Send User
- */
-exports.me = function (req, res) {
+// Send User
+
+exports.me = (req, res) => {
   res.jsonp(req.user || null);
 };
 
-/**
- * Find user by id
- */
-exports.user = function (req, res, next, id) {
+// Find user by id
+
+exports.user = (req, res, next, id) => {
   User
     .findOne({
       _id: id
@@ -185,12 +173,15 @@ exports.user = function (req, res, next, id) {
       next();
     });
 };
-exports.search = function (req, res, next) {
-  User
+exports.search = (req, res) => {
+  if (req.query.q === undefined || req.query.q === '' || /^\d+$/.test(req.query.q)) {
+    return res.status(400).send({ message: 'Invalid input' });
+  }
+  return User
     .find({ name: { $regex: new RegExp(req.query.q, 'i') } }, 'email name')
     .exec((err, users) => {
-      if (err) return next(err);
-      if (!users) return next(new Error('No users found '));
+      if (err) return res.status(404).send({ message: 'There was an error with your connection.' });
+      if (!users.length) return res.status(404).send({ message: 'User not found.' });
       return res.status(200).send(users);
     });
 };
