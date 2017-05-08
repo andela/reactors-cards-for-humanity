@@ -192,7 +192,8 @@ exports.jwtOnSignUp = (req, res) => {
           });
 
             // Send token
-          res.status(200).json(Object.assign({}, user.id, user.name, user.email, { token }));
+          res.status(200).json(Object.assign({},
+        { id: user.id, name: user.name, email: user.email }, { token }));
         });
       } else {
         return res.status(401).json({ message: 'Existing User' });
@@ -227,6 +228,7 @@ exports.loginWithEmail = (req, res) => {
         });
         // Send token
         user.password = null;
-        res.status(200).json(Object.assign({}, user._id, user.name, user.email, { token }));
+        res.status(200).json(Object.assign({},
+        { id: user.id, name: user.name, email: user.email }, { token }));
       });
 };
