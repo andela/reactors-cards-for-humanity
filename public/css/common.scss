@@ -28,8 +28,11 @@ background-image: url(../img/background_edited.jpg);
 background-image: url(../img/background_edited.jpg);
 
 background-position: center;
-background-size: 1240px 600px;
+// background-size: 1240px 600px;
 background-blend-mode: color#ffffff;
+background-attachment: scroll;
+background-repeat: no-repeat;
+background-size: cover;
 
 }
 

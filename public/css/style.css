@@ -72,14 +72,14 @@
 
 .some-text {
    text-align: center;
-   color: white;
+   color:black;
    max-width: 800px;
    margin: 0 30px;
 }
 
 
 #give {
-   color: white;
+   color: black;
    text-align: center;
 }
 
@@ -304,7 +304,7 @@
    padding: 30px;
  }
 
- /*.wpb-teaser .background-opacity {
+ .wpb-teaser .background-opacity {
    position: absolute;
    top: 0;
    left: 0;
@@ -312,10 +312,12 @@
    height: 100%;
    min-height: 100%;
    z-index:999;
-   background: #252525;
+   background: #dedede;
+   opacity: 0.4;
    border-radius: 8px;
    padding: 20px;
- }*/
+ }
+
 
  .wpb-teaser .container {
    position: relative;
@@ -400,11 +402,11 @@
  }
 
  #sign-up-btn-landing {
-   margin-left: 50px;
+   margin-left: 40px;
    margin-top: 40px;
    display: inline-block;
    border-radius: 8px;
-   font-size: 15px;
+   font-size: 10px;
    font-size: 2em;
    font-weight: 400;
    text-align: center;
@@ -485,6 +487,7 @@
 
  #card-list {
    margin-bottom: 15px;
+   margin-top: 60px
  }
 
  #directions {
@@ -502,12 +505,22 @@
 
 #sign-up-text {
    margin: 0px auto;
-   font-size: 18px;
+   font-size: 28px;
    font-family: 'Lobster', cursive;
    border-radius: 8px;
    /*background: #252525;*/
-   margin-left: 40px;
+   margin-left: 90px;
    overflow: hidden;
+}
+
+#slogan-head {
+   color: black;
+   font-weight: bold;
+   font-size: 48px;
+   text-transform: uppercase;
+   line-height: 40px;
+   width: 500px;
+   text-align: center;
 }
 
 .sign-in-header {
