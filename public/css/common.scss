@@ -11,24 +11,26 @@ $color-background: #fff;
 
 @mixin html {
 // /* IE10 Consumer Preview */
-background-image: url(../img/background.jpg);
+background-image: url(../img/background_edited.jpg);
 
 /* Mozilla Firefox */
-background-image: url(../img/background.jpg);
+background-image: url(../img/background_edited.jpg);
 /* Opera */
-background-image: url(../img/background.jpg);
+background-image: url(../img/background_edited.jpg);
 
 /* Webkit (Safari/Chrome 10) */
-background-image: url(../img/background.jpg);
+background-image: url(../img/background_edited.jpg);
 
 /* Webkit (Chrome 11+) */
-background-image: url(../img/background.jpg);
+background-image: url(../img/background_edited.jpg);
 
 /* W3C Markup, IE10 Release Preview */
-background-image: url(../img/background.jpg);
+background-image: url(../img/background_edited.jpg);
 
 background-position: center;
-background-size: 1240px 800px;
+background-size: 1240px 600px;
+background-blend-mode: color#ffffff;
+
 }
 
 // Both portrait and landscape
@@ -465,15 +467,15 @@ body{
                 }
 
                 #first-word{
-                    color: #7CE4E8;
+                    color: black;
                 }
 
                 #second-word{
-                    color: #FFFFA5;
+                    color: black;
                 }
 
                 #third-word{
-                    color: #FC575E;
+                    color: black;
                 }
             }
 
@@ -488,7 +490,7 @@ body{
                 font-weight: 400;
                 text-align: center;
                 color: white;
-                background: #C54141;
+                background: black;
                 margin-top: 3px;
                 margin-bottom: 3px;
                 margin-right: 10px;

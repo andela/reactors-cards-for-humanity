@@ -27,7 +27,7 @@ $(document).ready(function() {
               <span id="second-word"> for</span>
               <span id="third-word">Humanity</span>
             </div>
-            <div class="col-md-9 wpb-menu-container">
+            <div style = color:OOffff; class="col-md-9 wpb-menu-container">
               <ul class="wpb-main-menu">
                 <!--<li><a onClick="scroll(0,0)">Home</a></li>-->
                 <!--<li><a onClick="scroll(0,742);">How to Play</a></li>-->
@@ -58,31 +58,25 @@ $(document).ready(function() {
           <img ng-repeat="avatar in avatars" ng-src="{{avatar}}" id="avatar-face">
         </div>-->
         <!-- Teaser Slogan Start -->
-        <div class="wpb-slogan hero-header">
+        <div style = padding-right:800px; class="wpb-slogan hero-header">
           <h2>A Game for Horrible People <span>Desperately</span> Trying to do Good</h2>
         </div>
         <!-- Teaser Slogan End -->
 
-      <!-- Teaser Text  -->
-      <!--<div class="wpb-text">
-        <h3 id="slogan">What is Cards for Humanity?</h3>
-        <p>
-          Cards for Humanity is a fast-paced online version of the popular card game, <a href="http://cardsagainsthumanity.com/" target="_blank">Cards Against Humanity</a>, that gives you the opportunity to donate to children in need - all while remaining as despicable and awkward as you naturally are.
-        </p>
-        <p>
-          <span id="warning-word">Warning!</span>  This game contains offensive, profane, explicit content created by <a href="http://cardsagainsthumanity.com/" target="_blank">Cards Against Humanity</a> and provided here, uncensored and complete, in digital form. Human Resources made us say that.
-        </p>
-      </div>-->
-      <!-- Teaser Text End -->
-      <!--<span id='send-link' ng-show="showOptions"> *To send a private link to your friends, sign up! </span>
-      <div id="sign-up">-->
         <span ng-show="showOptions">
-        <a style = "padding-left:400px;"href="#!/signup"><div id="sign-up-btn-landing">START GAME</div></a>
-          <div style = padding-left:400px;id="sign-up-text"><a href="/play">
+         <a style = "padding-left:400px;"href="#!/signup"><div id="sign-up-btn-landing">START GAME</div></a>
+          <div style = padding-left:400px; id="sign-up-text"><a href="/play">
             <span id="first-word">Play</span>
             <span id="second-word">as</span>
             <span id="third-word">Guest</span></a>
           </div>
+        <div style = float:right; id:"info-box">
+        <div style = float:right; id="landing-image">
+          <div id="landing-charity">
+            <a href="http://www.crowdrise.com/cfhio/fundraiser/cards4humanity" id="crowdriseStaticLink-fundraiser-121142" title="Fundraising Websites on Crowdrise">Fundraising Websites - Crowdrise</a>
+            <script type="text/javascript" src="https://www.crowdrise.com/widgets/donate/fundraiser/121142/?callback=userDonationCb"></script>
+          </div>
+        </div>
           <span id="tweet-container-index">
             <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://cfh.io" data-text="Cards for Humanity: A Game for Horrible People Desperately Trying to do Good" data-related="CFH_App">Tweet</a>
             <!--<a href="https://twitter.com/cfh_app" class="twitter-follow-button" data-show-count="false" data-dnt="true">Tweet</a>-->
@@ -176,7 +170,7 @@ $(document).ready(function() {
 <!-- Donation Info Start -->
 <section class="wpb-contact-us parallax-background-contact" id="donations">
    <div class="wpb-teaser parallax-background" id="about-team">
-    <div class="background-opacity"></div>
+    <div class="background"></div>
 
     <div class="container" id="how-to-container">
       <div class="row" id="main-text">
@@ -217,26 +211,19 @@ $(document).ready(function() {
     <div class="container" id="how-to-container">
       <div class="row" id="main-text">
 
-        <!-- Teaser Slogan Start -->
-        <div id="slogan-head">
-          <div class="span6 wpb-slogan">
-            <h2>The Team</h2>
-          </div>
-        </div>
-      </div>
-      <div class="wpb-team-details" id="team-names">
-        <h3>Created with love and tenderness by:<br>
-          <a href="http://github.com/silversteez">Matt Silverstein,</a>
-          <a href="http://github.com/mrngoitall">Will Ngo,</a>
-          <a href="http://github.com/tylermcginnis33">Tyler McGinnis,</a> and
-          <a href="http://github.com/davegonzalez">David Gonzalez</a></h3>
-          <h3>XOXO</h3>
-      </div>
-      <img src="img/group-shot.jpg" alt="Team Member" id="team-photo">
-    </div>
-  </div>
-</section>
-<!-- About Us End -->
+  <!--Teaser Text  -->-->
+      <<div class="wpb-text">
+        <h3 id="slogan">What is Cards for Humanity?</h3>
+        <p>
+          Cards for Humanity is a fast-paced online version of the popular card game, <a href="http://cardsagainsthumanity.com/" target="_blank">Cards Against Humanity</a>, that gives you the opportunity to donate to children in need - all while remaining as despicable and awkward as you naturally are.
+        </p>
+        <p>-->
+          <span id="warning-word">Warning!</span>  This game contains offensive, profane, explicit content created by <a href="http://cardsagainsthumanity.com/" target="_blank">Cards Against Humanity</a> and provided here, uncensored and complete, in digital form. Human Resources made us say that.
+        </p>
+      </div>-->
+       <!--Teaser Text End -->
+      <span id='send-link' ng-show="showOptions"> *To send a private link to your friends, sign up! </span>
+      <div id="sign-up">
 
 <!-- Footer Start -->
 <section class="foot">
@@ -245,11 +232,11 @@ $(document).ready(function() {
     <div class="text-left">
         <a href="https://github.com/cardsforhumanity/cardsforhumanity"><img src="img/github.png" id="gitcat"></a>
         <a href="/#!/privacy">Privacy Policy</a>
-        <div class="floater" id="landing-logo">
+        <!--<div class="floater" id="landing-logo">
           <span id="first-word">Cards</span>
           <span id="second-word"> for</span>
           <span id="third-word">Humanity</span>
-        </div>
+        </div>-->
       </div>
   </div>
 </section>

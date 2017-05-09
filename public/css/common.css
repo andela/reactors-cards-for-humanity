@@ -65,19 +65,20 @@ html, body, .main-container, .cont, #first-section, #inner-container {
   height: 100%; }
 
 html {
-  background-image: url(../img/background.jpg);
+  background-image: url(../img/background_edited.jpg);
   /* Mozilla Firefox */
-  background-image: url(../img/background.jpg);
+  background-image: url(../img/background_edited.jpg);
   /* Opera */
-  background-image: url(../img/background.jpg);
+  background-image: url(../img/background_edited.jpg);
   /* Webkit (Safari/Chrome 10) */
-  background-image: url(../img/background.jpg);
+  background-image: url(../img/background_edited.jpg);
   /* Webkit (Chrome 11+) */
-  background-image: url(../img/background.jpg);
+  background-image: url(../img/background_edited.jpg);
   /* W3C Markup, IE10 Release Preview */
-  background-image: url(../img/background.jpg);
+  background-image: url(../img/background_edited.jpg);
   background-position: center;
-  background-size: 1240px 800px;
+  background-size: 1240px 600px;
+  background-blend-mode: color #ffffff;
   background-attachment: fixed;
   background-repeat: no-repeat;
   position: relative; }
@@ -133,11 +134,11 @@ body {
           #main-container #app-container #menu-container #logo {
             font-size: 20px; } }
         #main-container #app-container #menu-container #logo #first-word {
-          color: #7CE4E8; }
+          color: black; }
         #main-container #app-container #menu-container #logo #second-word {
-          color: #FFFFA5; }
+          color: black; }
         #main-container #app-container #menu-container #logo #third-word {
-          color: #FC575E; }
+          color: black; }
       #main-container #app-container #menu-container #abandon-game-button {
         display: inline-block;
         float: right;
@@ -149,7 +150,7 @@ body {
         font-weight: 400;
         text-align: center;
         color: white;
-        background: #C54141;
+        background: black;
         margin-top: 3px;
         margin-bottom: 3px;
         margin-right: 10px;
