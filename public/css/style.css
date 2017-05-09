@@ -6,13 +6,16 @@
    text-transform: uppercase;
  }
 
+.banner {
+  width: 100%;
+  position: relative;
+  margin-top: 30vh
+}
  #landing-charity {
-   width: 300px !important;
-   margin-left: 15px !important;
-   max-width: 100% !important;
-   position: relative !important;
-   float: left !important;
-   top: -65px;
+   width: 35% !important;
+   position: absolute;
+   right: 1em;
+   top: -3em;
 }
 
 #tweet-container-index{
@@ -329,6 +332,8 @@
    color: black;
    font-weight: bold;
    font-size: 36px;
+   position: absolute;
+   margin-left: -60px;
    text-transform: uppercase;
    line-height: 40px;
    width: 500px;
@@ -338,7 +343,13 @@
 
  #slogan {
    text-align: center;
-   color: white;
+   font-family: Pacifico;
+   font-size: 38px;
+   font-style: regular;
+   font-variant: regular;
+   font-weight: 500;
+   line-height: 15.4px;
+   color: black;
  }
 
  .wpb-teaser .wpb-text p {
@@ -389,19 +400,16 @@
  }
 
  #sign-up-btn-landing {
+   margin-left: 50px;
+   margin-top: 40px;
    display: inline-block;
    border-radius: 8px;
-   -moz-border-radius: 5px;
-   -webkit-border-radius: 5px;
    font-size: 15px;
    font-size: 2em;
    font-weight: 400;
    text-align: center;
    color:black;
    background: cyan;
-   margin-top: 3px;
-   margin-bottom: 3px;
-   margin-right: 10px;
    padding: 0.65em 35px;
    cursor: pointer;
  }
@@ -885,7 +893,7 @@
  }
 
  /**** Contact Us ****/
- .wpb-contact-us {
+ /*.wpb-contact-us {
    min-height: 540px;
    position: relative;
    z-index:890;
@@ -914,23 +922,23 @@
    min-height: 100%;
    z-index:900;
    background: #252525;
- }
+ }*/
 
 
  /**** Contact Us Information ****/
- .wpb-contact-us-info {
+ /*.wpb-contact-us-info {
    margin-top: 25px;
    color: #fff;
- }
+ }*/
 
- .wpb-contact-us-info ul {
+ /*.wpb-contact-us-info ul {
    margin: 0;
    padding: 0;
  }
 
  .wpb-contact-us-info ul li {
    padding-bottom:10px;
- }
+ }*/
 
 
  /**** Footer ****/
@@ -946,7 +954,7 @@
  }
 
  .legal {
-   color: white;
+   color: black;
  }
 
  /**** Margins ****/
@@ -1185,7 +1193,7 @@
 
    #slogan {
       text-align: center;
-      color: white;
+      color: black;
       font-size: 1.3em;
    }
 
