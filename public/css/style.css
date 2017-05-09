@@ -19,9 +19,10 @@
 }
 
 #tweet-container-index{
-   margin-top: 10px;
+   /*margin-top: 5px;*/
+   margin-left: 20px;
    display: inline-block;
-   position: center;
+   position: relative;
    top: 5px;
 }
 .hero-header span{
@@ -73,6 +74,7 @@
 .some-text {
    text-align: center;
    color:black;
+   font-weight: bold
    max-width: 800px;
    margin: 0 30px;
 }
@@ -174,7 +176,7 @@
 
 #landing-logo {
    margin: 5px 0 5px 0px;
-   font-size: 28px;
+   font-size: 36px;
    font-family: 'Lobster', cursive;
    border-radius: 8px;
    /*background: #252525;*/
@@ -210,7 +212,7 @@
  .wpb-logo-container {
    color: #fff;
    font-weight: bold;
-   font-size: 11px;
+   font-size: 14px;
    max-width: 100%;
    margin-right: 9px;
  }
@@ -312,8 +314,8 @@
    height: 100%;
    min-height: 100%;
    z-index:999;
-   background: #dedede;
-   opacity: 0.4;
+   background: black;
+   opacity: 0.8;
    border-radius: 8px;
    padding: 20px;
  }
@@ -333,9 +335,9 @@
  .wpb-teaser .wpb-slogan h2 {
    color: black;
    font-weight: bold;
-   font-size: 36px;
+   font-size: 34px;
    position: absolute;
-   margin-left: -60px;
+   margin-left: -100px;
    text-transform: uppercase;
    line-height: 40px;
    width: 500px;
@@ -345,13 +347,13 @@
 
  #slogan {
    text-align: center;
-   font-family: Pacifico;
+   /*font-family: Pacifico;
    font-size: 38px;
    font-style: regular;
    font-variant: regular;
    font-weight: 500;
    line-height: 15.4px;
-   color: black;
+   color: black;*/
  }
 
  .wpb-teaser .wpb-text p {
@@ -402,10 +404,10 @@
  }
 
  #sign-up-btn-landing {
-   margin-left: 40px;
+   margin-left: 15px;
    margin-top: 40px;
    display: inline-block;
-   border-radius: 8px;
+   border-radius: 50px;
    font-size: 10px;
    font-size: 2em;
    font-weight: 400;
@@ -416,6 +418,14 @@
    cursor: pointer;
  }
 
+#sign-up {
+  margin: 0px auto;
+  font-size: 28px;
+  font-family: 'Lobster', cursive;
+  border-radius: 8px;
+  /*margin-left: 20px;*/
+  overflow: hidden;
+}
   #sign-up-btn-other {
    display: inline-block;
    border-radius: 8px;
@@ -509,18 +519,21 @@
    font-family: 'Lobster', cursive;
    border-radius: 8px;
    /*background: #252525;*/
-   margin-left: 90px;
+   margin-left: 60px;
    overflow: hidden;
 }
 
 #slogan-head {
-   color: black;
-   font-weight: bold;
+   color: white;
+   font-weight: bolder;
    font-size: 48px;
    text-transform: uppercase;
    line-height: 40px;
-   width: 500px;
+   width: 400px;
    text-align: center;
+   position: relative;
+   top: 50%;
+   left: 30%
 }
 
 .sign-in-header {
@@ -967,7 +980,7 @@
  }
 
  .legal {
-   color: black;
+   color: white;
  }
 
  /**** Margins ****/
