@@ -27,11 +27,12 @@ gulp.task('nodemon_file', () => {
     env: { NODE_ENV: 'development' } });
 });
 // sass task
-gulp.task('sass', () => gulp.src('./sass/**/*.scss')
+gulp.task('sass', () => gulp.src('public/css/*.scss')
 .pipe(sass().on('error', sass.logError))
-.pipe(gulp.dest('.public/css')));
+.pipe(gulp.dest('public/css')));
+
 gulp.task('sass:watch', () => {
-  gulp.watch('./sass/**/*.scss', ['sass']);
+  gulp.watch('public/css/*.scss', ['sass']);
 });
 
 // watch task
@@ -53,7 +54,7 @@ gulp.task('bower', () => {
 });
 
 // default task
-gulp.task('default', ['lint', 'sass', 'bower', 'watch', 'nodemon_file'], () => {
+gulp.task('default', ['lint', 'sass:watch', 'sass', 'bower', 'watch', 'nodemon_file'], () => {
   gutil.log('Gulp is running!');
 });
 

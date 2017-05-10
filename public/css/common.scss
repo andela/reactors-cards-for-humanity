@@ -9,25 +9,25 @@ $mq-custom-wide : 1200px !default;
 
 $color-background: #fff;
 
-@mixin gradient-bg {
+// @mixin gradient-bg {
 /* IE10 Consumer Preview */
-background-image: -ms-linear-gradient(top left, #0B394E 0%, #ABCE8D 100%);
+// background-image: -ms-linear-gradient(top left, #0B394E 0%, #ABCE8D 100%);
 
 /* Mozilla Firefox */
-background-image: -moz-linear-gradient(top left, #0B394E 0%, #ABCE8D 100%);
+// background-image: -moz-linear-gradient(top left, #0B394E 0%, #ABCE8D 100%);
 
 /* Opera */
-background-image: -o-linear-gradient(top left, #0B394E 0%, #ABCE8D 100%);
+// background-image: -o-linear-gradient(top left, #0B394E 0%, #ABCE8D 100%);
 
 /* Webkit (Safari/Chrome 10) */
-background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #0B394E), color-stop(1, #ABCE8D));
+// background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #0B394E), color-stop(1, #ABCE8D));
 
 /* Webkit (Chrome 11+) */
-background-image: -webkit-linear-gradient(top left, #0B394E 0%, #ABCE8D 100%);
+// background-image: -webkit-linear-gradient(top left, #0B394E 0%, #ABCE8D 100%);
 
 /* W3C Markup, IE10 Release Preview */
-background-image: linear-gradient(to bottom right, #0B394E 0%, #ABCE8D 100%);
-}
+// background-image: linear-gradient(to bottom right, #0B394E 0%, #ABCE8D 100%);
+//  }
 
 // Both portrait and landscape
 @mixin mobile-only {
@@ -394,7 +394,7 @@ html{
     // -moz-background-size: cover;
     // -o-background-size: cover;
     // background-size: cover;
-    @include gradient-bg;
+    // @include gradient-bg;
     background-attachment: fixed;
     background-repeat: no-repeat;
     position: relative;
@@ -442,7 +442,7 @@ body{
             -webkit-border-radius: 8px;
             -moz-border-radius: 8px;
             border-radius: 8px;
-            background: #252525;
+            background: cyan;
             margin-bottom: 10px;
             margin-top: 5px;
             padding: 5px;
@@ -463,15 +463,15 @@ body{
                 }
 
                 #first-word{
-                    color: #7CE4E8;
+                    color: black;
                 }
 
                 #second-word{
-                    color: #FFFFA5;
+                    color: black;
                 }
 
                 #third-word{
-                    color: #FC575E;
+                    color: black;
                 }
             }
 
@@ -486,10 +486,10 @@ body{
                 font-weight: 400;
                 text-align: center;
                 color: white;
-                background: #C54141;
+                background: black;
                 margin-top: 3px;
                 margin-bottom: 3px;
-                margin-right: 10px;
+                margin-right: 8px;
                 padding: 0.65em 20px;
                 width: 140px;
                 cursor: pointer;
@@ -802,7 +802,7 @@ body{
                     }
 
                     #timer-container {
-                        height: 100%;
+                        height: 80%;
 
                         #inner-timer-container{
                             text-align: center;
@@ -835,11 +835,12 @@ body{
 
                             #time{
                                 font-family: 'Lobster', cursive;
-                                font-size: 110px;
+                                font-size: 120px;
                                 position: absolute;
-                                bottom: 25%;
+                                bottom: 20%;
                                 left: 0;
                                 right: 0;
+                                border: 3px;
 
                                 @include tablet-landscape-and-below{
                                     font-size: 90px;
@@ -854,7 +855,7 @@ body{
                  }
 
                 #question-container-outer {
-                    height: 100%;
+                    height: 80%;
                     float: left;
                     width: 79%;
 
@@ -870,11 +871,11 @@ body{
                     }
 
                     #question-container-inner{
-                        width: 100%;
-                        height: 100%;
+                        width: 80%;
+                        height: 80%;
                         .card{
                             width: 100%;
-                            margin: 0px auto;
+                            margin: 15px auto;
                             display: block;
 
                             #notifications {
@@ -992,7 +993,7 @@ body{
                 @include br;
                 text-align: center;
                 padding: 15px;
-                height: 50%;
+                height: 60%;
                 margin-top: 10px;
 
                 @include tablet-portrait-only{
@@ -1012,7 +1013,8 @@ body{
                     margin: 0 5%;
 
                     #lobby-how-to-play{
-                        font-size: 18px;
+                        font-size: 40px;
+                        text-decoration: underline;
                         margin-top: 10px;
 
                         @include tablet-portrait-only{
@@ -1020,14 +1022,14 @@ body{
                         }
                     }
 
-                    ol{
+                    ul{
                         margin-top: 10px;
                         font-family: $main-font;
                         text-align: left;
-                        font-size: 17px;
+                        font-size: 25px;
 
                         li{
-                            list-style-type: decimal;
+                            list-style-type: disc;
                             margin-bottom: 5px;
                         }
 
