@@ -14,7 +14,7 @@
  #landing-charity {
    width: 30%;
    position: absolute;
-   right: 1em;
+   left: 55em;
    top: -3em;
 }
 
@@ -346,7 +346,15 @@
  }
 
 #actual-charity {
-  align-content: center
+  width: 30%;
+  position: absolute;
+  left: 30em;
+  top: -3em;
+  width: 67%;
+  margin-left: 21%;
+  max-width: 100%;
+  float: left;
+  border-radius: 50px
 }
  #slogan {
    text-align: center;
