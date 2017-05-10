@@ -12,7 +12,7 @@
   margin-top: 30vh
 }
  #landing-charity {
-   width: 35% !important;
+   width: 30%;
    position: absolute;
    right: 1em;
    top: -3em;
@@ -73,15 +73,15 @@
 
 .some-text {
    text-align: center;
-   color:black;
-   font-weight: bold
+   color: black;
+   font-weight: bold;
    max-width: 800px;
    margin: 0 30px;
 }
 
 
 #give {
-   color: black;
+   color: white;
    text-align: center;
 }
 
@@ -314,8 +314,8 @@
    height: 100%;
    min-height: 100%;
    z-index:999;
-   background: black;
-   opacity: 0.8;
+   background: #dedede;
+   opacity: 0.6;
    border-radius: 8px;
    padding: 20px;
  }
@@ -345,15 +345,18 @@
    /*padding-bottom: 300px*/
  }
 
+#actual-charity {
+  align-content: center
+}
  #slogan {
    text-align: center;
-   /*font-family: Pacifico;
+   font-family: Pacifico;
    font-size: 38px;
    font-style: regular;
    font-variant: regular;
    font-weight: 500;
    line-height: 15.4px;
-   color: black;*/
+   color: black;
  }
 
  .wpb-teaser .wpb-text p {
@@ -524,7 +527,7 @@
 }
 
 #slogan-head {
-   color: white;
+   color: black;
    font-weight: bolder;
    font-size: 48px;
    text-transform: uppercase;
@@ -918,8 +921,8 @@
    margin: 0;
  }
 
- /**** Contact Us ****/
- /*.wpb-contact-us {
+ *** Contact Us ***
+ .wpb-contact-us {
    min-height: 540px;
    position: relative;
    z-index:890;
@@ -948,46 +951,47 @@
    min-height: 100%;
    z-index:900;
    background: #252525;
- }*/
+ }
 
 
- /**** Contact Us Information ****/
- /*.wpb-contact-us-info {
+ *** Contact Us Information ****/
+ .wpb-contact-us-info {
    margin-top: 25px;
    color: #fff;
- }*/
+ }
 
- /*.wpb-contact-us-info ul {
+ .wpb-contact-us-info ul {
    margin: 0;
    padding: 0;
  }
 
  .wpb-contact-us-info ul li {
    padding-bottom:10px;
- }*/
+ }
 
 
- /**** Footer ****/
+ *** Footer ***
 
  .foot {
    bottom: 0;
    max-width: 1400px;
    border-radius: 8px;
-   /*background: #252525;*/
+   text-align: center;
+   background: #252525;
    padding: 5px 5px 5px 13px;
-   width: 90%;
+   width: 30%;
    margin: 30px auto;
  }
 
  .legal {
-   color: white;
+   color:black;
  }
 
- /**** Margins ****/
+ *** Margins ***
 
 .mod-contain {
-   /*padding-right: 15px;
-   padding-left: 15px;*/
+  padding-right: 15px;
+   padding-left: 15px;
    margin-right: auto;
    margin-left: auto;
    width: 90%;
@@ -1219,7 +1223,7 @@
 
    #slogan {
       text-align: center;
-      color: black;
+      color: white;
       font-size: 1.3em;
    }
 
@@ -1243,7 +1247,7 @@
       font-family: Arial;
       font-size: 20px;
       font-weight: bold;
-      vertical-align: top;
+
       width: 100%;
    }
 
@@ -1290,7 +1294,7 @@
       /*background: #252525;*/
       padding: 5px 5px 5px 13px;
       width: 100%;
-      margin: 30px auto;
+      margin: 20px auto;
    }
 
    .row {
