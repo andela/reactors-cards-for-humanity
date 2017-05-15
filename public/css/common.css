@@ -546,7 +546,7 @@ body {
                     #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #game-end-info .game-end-headline {
                       font-size: 18px; } }
       #main-container #app-container #gameplay-container #info-container {
-        width: 100%;
+        width: 90%;
         background: #252525;
         color: white;
         -webkit-border-radius: 8px;

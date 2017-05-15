@@ -477,7 +477,7 @@ body{
 
             #abandon-game-button{
                 display: inline-block;
-                float:right;
+                float: right;
                 border-radius: 8px;
                 -moz-border-radius: 8px;
                 -webkit-border-radius: 8px;
@@ -987,7 +987,7 @@ body{
                 }
             }
             #info-container{
-                width: 100%;
+                width: 90%;
                 background: #252525;
                 color: white;
                 @include br;
