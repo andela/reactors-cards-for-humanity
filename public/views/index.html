@@ -54,16 +54,19 @@
         <div class="col-md-12" id="avatars" ng-controller="IndexController">
           <!--<img ng-repeat="avatar in avatars" ng-src="{{avatar}}" id="avatar-face">-->
         </div>
-        <div class="banner">
 
+        <div class="banner">
+          <span ng-show="showOptions">
           <div style=padding-right:800px; class="wpb-slogan hero-header">
             <h2>A Game for Horrible People <span>Desperately</span> Trying to do Good</h2>
-          </div>
-          <!-- Teaser Slogan End -->
-          <div class="starter">
-            <span ng-show="showOptions">
-         <a style = "padding-left:400px;"href="#!/signup"><div id="sign-up-btn-landing">START GAME</div></a>
-          <div style = padding-left:400px; id="sign-up-text"><a href="/play">
+        </div>
+        <!-- Teaser Slogan End -->
+
+        <div class="starter">
+          <a style="padding-left:400px;" href="#!/signup">
+            <div id="sign-up-btn-landing">START GAME</div>
+          </a>
+          <div style=padding-left:400px; id="sign-up-text"><a href="/play">
             <span id="first-word">Play</span>
             <span id="second-word">as</span>
             <span id="third-word">Guest</span></a>
@@ -95,23 +98,8 @@
         </span>
         <span ng-hide="showOptions">
           <a href="/play"><div id="sign-up-btn-landing">Play Game with Strangers</div></a>
-          <a href="/play?custom"><div id="sign-up-btn-landing">Play Game with Friends</div></a>
-              <span id='twitter-facebook'>
-                <span id="tweet-container-index">
-                  <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://cfh.io" data-text="Cards for Humanity: A Game for Horrible People Desperately Trying to do Good" data-related="CFH_App">Tweet</a>
-                <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
-                </span>
-                <span id='facebook-share'>
-                    <a href="#"
-                      onclick="
-                        window.open(
-                          'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
-                          'facebook-share-dialog',
-                          'width=626,height=436');
-                        return false;">
-                      Share on Facebook
-                    </a>
-                </span>
+          <a style="padding-left:200px;" href="/play?custom"><div id="sign-up-btn-landing">Play Game with Friends</div></a>
+              
         </span>
         </span>
       </div>
@@ -243,6 +231,6 @@
         </div>-->
               </div>
             </div>
-          </section> 
+          </section>
           <!-- Footer End -->
         </div>
