@@ -282,7 +282,7 @@
  /**** LANDING ****/
 
  #main-text {
-   margin: 5px;
+   margin: 10px;
  }
 
  #avatars {
@@ -409,7 +409,7 @@
 
  #create {
     text-align: center;
-    color: white;
+    color: black;
     font-family: arial;
     margin-bottom: -13px;
  }
@@ -446,8 +446,8 @@
    font-size: 1.35em;
    font-weight: 400;
    text-align: center;
-   color: white;
-   background: #C54141;
+   color: black;
+   background: #00FFFF;
    margin-top: 3px;
    margin-bottom: 3px;
    margin-right: 10px;
