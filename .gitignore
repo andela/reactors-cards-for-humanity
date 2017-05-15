@@ -8,3 +8,4 @@ Project_Default.xml
 .env
 coverage
 common.css
+yarn.lock
