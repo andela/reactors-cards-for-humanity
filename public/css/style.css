@@ -6,22 +6,29 @@
    text-transform: uppercase;
  }
 
+.banner {
+  width: 100%;
+  position: relative;
+  margin-top: 30vh
+}
  #landing-charity {
-   width: 300px !important;
-   margin-left: 15px !important;
-   max-width: 100% !important;
-   position: relative !important;
-   float: left !important;
-   top: -65px;
+   width: 30%;
+   position: absolute;
+   left: 55em;
+   top: -3em;
 }
 
 #tweet-container-index{
-   margin-top: 10px;
+   /*margin-top: 5px;*/
+   margin-left: 20px;
    display: inline-block;
    position: relative;
    top: 5px;
 }
+.hero-header span{
+  color: cyan
 
+}
 #twitter-facebook{
    display: block;
 }
@@ -36,10 +43,10 @@
 #facebook-share{
    font-size: 12px;
    padding: 3px;
-   background: white;
+   background: black;
    border-radius: 3px;
    margin-left: 10px;
-   background-color: #f8f8f8;
+   background-color: black;
    background-image: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#dedede));
    background-image: -moz-linear-gradient(top,#fff,#dedede);
    background-image: -o-linear-gradient(top,#fff,#dedede);
@@ -49,7 +56,7 @@
    -moz-border-radius: 3px;
    -webkit-border-radius: 3px;
    border-radius: 3px;
-   color: #333;
+   color: white;
    font-weight: bold;
    text-shadow: 0 1px 0 rgba(255,255,255,.5);
    -webkit-user-select: none;
@@ -60,15 +67,18 @@
 }
 
 #facebook-share a{
-   color: #333;
+   color: black;
+
 }
 
 .some-text {
    text-align: center;
-   color: white;
+   color: black;
+   font-weight: bold;
    max-width: 800px;
    margin: 0 30px;
 }
+
 
 #give {
    color: white;
@@ -77,7 +87,7 @@
 
 #info-box {
    margin-top: 25px;
-   margin-left: 10%;
+   margin-left: 10%
 }
 
 #wish {
@@ -102,6 +112,7 @@
       max-width: 100% !important;
       float: left !important;
       top: -65px;
+      border-radius: 50px
    }
 }
 
@@ -129,7 +140,7 @@
 
  /**** Links ****/
  a {
-   color: #60B197;
+   color: cyan;
    -webkit-transition: color 0.5s ease;
    -moz-transition: color 0.5s ease;
    -ms-transition: color 0.5s ease;
@@ -139,16 +150,16 @@
 
  a:hover {
    text-decoration: none;
-   color: #2ecc71;
+   color: cyan;
    border-radius:0px !important;
  }
 
  p a {
-   color: #60B197;
+   color: cyan;
  }
 
  p a:hover {
-   color: #2ecc71;
+   color: black;
  }
 
 
@@ -165,23 +176,23 @@
 
 #landing-logo {
    margin: 5px 0 5px 0px;
-   font-size: 28px;
+   font-size: 36px;
    font-family: 'Lobster', cursive;
    border-radius: 8px;
-   background: #252525;
+   /*background: #252525;*/
    padding: 5px 5px 5px 13px;
 }
 
 #first-word {
-   color: #7CE4E8;
+   color: black;
 }
 
 #second-word {
-   color: #FFFFA5;
+   color:black;
 }
 
 #third-word {
-   color: #FC575E;
+   color:black;
 }
 
 #warning-word {
@@ -201,13 +212,13 @@
  .wpb-logo-container {
    color: #fff;
    font-weight: bold;
-   font-size: 11px;
+   font-size: 14px;
    max-width: 100%;
    margin-right: 9px;
  }
 
  .wpb-logo-container a {
-   color: #ffffff !important;
+   color: cyan !important;
  }
 
 
@@ -240,7 +251,7 @@
  }
 
   .wpb-menu-container .wpb-main-menu li a:hover {
-   color: #2ECC71 !important;
+   color: black!important;
    -webkit-transition: color 0.5s ease;
    -moz-transition: color 0.5s ease;
    -ms-transition: color 0.5s ease;
@@ -303,10 +314,12 @@
    height: 100%;
    min-height: 100%;
    z-index:999;
-   background: #252525;
+   background: #dedede;
+   opacity: 0.6;
    border-radius: 8px;
    padding: 20px;
  }
+
 
  .wpb-teaser .container {
    position: relative;
@@ -320,17 +333,38 @@
  }
 
  .wpb-teaser .wpb-slogan h2 {
-   color: #fff;
+   color: black;
    font-weight: bold;
-   font-size: 52px;
+   font-size: 34px;
+   position: absolute;
+   margin-left: -100px;
    text-transform: uppercase;
-   line-height: 60px;
+   line-height: 40px;
+   width: 500px;
    text-align: center;
+   /*padding-bottom: 300px*/
  }
 
+#actual-charity {
+  width: 30%;
+  position: absolute;
+  left: 30em;
+  top: -3em;
+  width: 67%;
+  margin-left: 21%;
+  max-width: 100%;
+  float: left;
+  border-radius: 50px
+}
  #slogan {
    text-align: center;
-   color: white;
+   font-family: Pacifico;
+   font-size: 38px;
+   font-style: regular;
+   font-variant: regular;
+   font-weight: 500;
+   line-height: 15.4px;
+   color: black;
  }
 
  .wpb-teaser .wpb-text p {
@@ -381,23 +415,28 @@
  }
 
  #sign-up-btn-landing {
+   margin-left: 15px;
+   margin-top: 40px;
    display: inline-block;
-   border-radius: 8px;
-   -moz-border-radius: 5px;
-   -webkit-border-radius: 5px;
-   font-size: 20px;
+   border-radius: 50px;
+   font-size: 10px;
    font-size: 2em;
    font-weight: 400;
    text-align: center;
-   color: white;
-   background: #C54141;
-   margin-top: 3px;
-   margin-bottom: 3px;
-   margin-right: 10px;
+   color:black;
+   background: cyan;
    padding: 0.65em 35px;
    cursor: pointer;
  }
 
+#sign-up {
+  margin: 0px auto;
+  font-size: 28px;
+  font-family: 'Lobster', cursive;
+  border-radius: 8px;
+  /*margin-left: 20px;*/
+  overflow: hidden;
+}
   #sign-up-btn-other {
    display: inline-block;
    border-radius: 8px;
@@ -469,6 +508,7 @@
 
  #card-list {
    margin-bottom: 15px;
+   margin-top: 60px
  }
 
  #directions {
@@ -486,12 +526,25 @@
 
 #sign-up-text {
    margin: 0px auto;
-   font-size: 18px;
+   font-size: 28px;
    font-family: 'Lobster', cursive;
    border-radius: 8px;
-   background: #252525;
-   margin-left: 40px;
+   /*background: #252525;*/
+   margin-left: 60px;
    overflow: hidden;
+}
+
+#slogan-head {
+   color: black;
+   font-weight: bolder;
+   font-size: 48px;
+   text-transform: uppercase;
+   line-height: 40px;
+   width: 400px;
+   text-align: center;
+   position: relative;
+   top: 50%;
+   left: 30%
 }
 
 .sign-in-header {
@@ -608,9 +661,9 @@
  }
 
  /**** Portfolio ****/
- .wpb-portfolio-body {
+ /*.wpb-portfolio-body {
 
- }
+ }*/
 
  .wpb-portfolio-body .wpb-teaser {
    min-height: 350px;
@@ -765,8 +818,8 @@
 
 
  /**** Single Portfolio Item ****/
- .wpb-single-portfolio {
- }
+ /*.wpb-single-portfolio {
+ }*/
 
  .wpb-single-portfolio .wpb-content-inner {
    padding: 0px;
@@ -825,7 +878,7 @@
    width: 100%;
    height: 100%;
    z-index:1001;
-   background: rgba(26, 204, 113, 0.6);
+   background: cyan(26, 204, 113, 0.6);
    opacity:0;
  }
 
@@ -876,7 +929,7 @@
    margin: 0;
  }
 
- /**** Contact Us ****/
+ *** Contact Us ***
  .wpb-contact-us {
    min-height: 540px;
    position: relative;
@@ -909,7 +962,7 @@
  }
 
 
- /**** Contact Us Information ****/
+ *** Contact Us Information ****/
  .wpb-contact-us-info {
    margin-top: 25px;
    color: #fff;
@@ -925,35 +978,36 @@
  }
 
 
- /**** Footer ****/
+ *** Footer ***
 
  .foot {
    bottom: 0;
    max-width: 1400px;
    border-radius: 8px;
+   text-align: center;
    background: #252525;
    padding: 5px 5px 5px 13px;
-   width: 90%;
+   width: 30%;
    margin: 30px auto;
  }
 
  .legal {
-   color: white;
+   color:black;
  }
 
- /**** Margins ****/
+ *** Margins ***
 
 .mod-contain {
-   /*padding-right: 15px;
-   padding-left: 15px;*/
+  padding-right: 15px;
+   padding-left: 15px;
    margin-right: auto;
    margin-left: auto;
    width: 90%;
 }
 
  .container-margin {
-   padding-top:60px;
-   padding-bottom: 60px;
+   padding-top:80px;
+   padding-bottom: 80px;
  }
 
 .arrow {
@@ -1132,9 +1186,9 @@
    }
 
     .wpb-teaser .wpb-slogan h2 {
-      color: #fff;
+      color: black;
       font-weight: bold;
-      font-size: 1.6em;
+      font-size: 1em;
       text-transform: uppercase;
       text-align: center;
       line-height: 24px;
@@ -1201,7 +1255,7 @@
       font-family: Arial;
       font-size: 20px;
       font-weight: bold;
-      vertical-align: top;
+
       width: 100%;
    }
 
@@ -1245,10 +1299,10 @@
       max-width: 1400px;
       height: 60px;
       border-radius: 8px;
-      background: #252525;
+      /*background: #252525;*/
       padding: 5px 5px 5px 13px;
       width: 100%;
-      margin: 30px auto;
+      margin: 20px auto;
    }
 
    .row {

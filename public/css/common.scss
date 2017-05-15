@@ -7,26 +7,16 @@ $mq-tablet-landscape : 1024px !default;
 $mq-desktop: 1100px !default;
 $mq-custom-wide : 1200px !default;
 
-$color-background: #fff;
+$color-background: #ffffff;
 
-@mixin gradient-bg {
-/* IE10 Consumer Preview */
-background-image: -ms-linear-gradient(top left, #0B394E 0%, #ABCE8D 100%);
+  @mixin html {
+background-image: url("../img/background_edited.jpg");
+background-position: center;
+background-blend-mode: color#ffffff;
+background-attachment: scroll;
+background-repeat: no-repeat;
+background-size: cover;
 
-/* Mozilla Firefox */
-background-image: -moz-linear-gradient(top left, #0B394E 0%, #ABCE8D 100%);
-
-/* Opera */
-background-image: -o-linear-gradient(top left, #0B394E 0%, #ABCE8D 100%);
-
-/* Webkit (Safari/Chrome 10) */
-background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #0B394E), color-stop(1, #ABCE8D));
-
-/* Webkit (Chrome 11+) */
-background-image: -webkit-linear-gradient(top left, #0B394E 0%, #ABCE8D 100%);
-
-/* W3C Markup, IE10 Release Preview */
-background-image: linear-gradient(to bottom right, #0B394E 0%, #ABCE8D 100%);
 }
 
 // Both portrait and landscape
@@ -301,7 +291,7 @@ background-image: linear-gradient(to bottom right, #0B394E 0%, #ABCE8D 100%);
     padding: 1%;
     margin: 1%;
 
-    background-color: #fff;
+    background-color: #ffffff;
 
     border-radius: 8px;
 
@@ -394,10 +384,10 @@ html{
     // -moz-background-size: cover;
     // -o-background-size: cover;
     // background-size: cover;
-    @include gradient-bg;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    position: relative;
+  @include html;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
 
     @include mobile-only{
         //margin: 3px;
@@ -463,15 +453,15 @@ body{
                 }
 
                 #first-word{
-                    color: #7CE4E8;
+                    color: #000000;
                 }
 
                 #second-word{
-                    color: #FFFFA5;
+                    color: #000000;
                 }
 
                 #third-word{
-                    color: #FC575E;
+                    color: #000000;
                 }
             }
 
@@ -486,7 +476,7 @@ body{
                 font-weight: 400;
                 text-align: center;
                 color: white;
-                background: #C54141;
+                background: #000000;
                 margin-top: 3px;
                 margin-bottom: 3px;
                 margin-right: 10px;
@@ -508,7 +498,7 @@ body{
             }
 
             #tweet-container{
-                float: right;
+                float: center;
                 padding-top: 10px;
                 width: 77px;
                 margin-right: 10px;
@@ -723,7 +713,7 @@ body{
                     text-align: center;
                     width: 100%;
                     @include br-bottom;
-                    background: black;
+                    background: #000000;
                     opacity:0.4;
 
                     @include mobile-only{
@@ -731,7 +721,7 @@ body{
                     }
 
                     #the-czar{
-                        color: #fff;
+                        color: #ffffff;
                         font-weight: bold;
                         font-size: 20px;
 
@@ -807,7 +797,7 @@ body{
                         #inner-timer-container{
                             text-align: center;
                             @include soft-button;
-                            background: #FFF;
+                            background: #ffffff;
                             text-shadow: none;
                             cursor: default;
                             border: none;
@@ -1162,8 +1152,8 @@ body{
 
                 #charity-fact-container{
                     @include br;
-                    background-color: #fff;
-                    color: black;
+                    background-color: #ffffff;
+                    color:#000000;
 
                     position: absolute;
                     bottom: 4%;
@@ -1322,7 +1312,7 @@ body{
     border-radius: 8px !important;
     text-transform: none !important;
     .donateNow{
-        border-top: 0px solid black !important;
+        border-top: 0px solid #000000 !important;
     }
 }
 
