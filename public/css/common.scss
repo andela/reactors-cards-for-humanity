@@ -7,16 +7,15 @@ $mq-tablet-landscape : 1024px !default;
 $mq-desktop: 1100px !default;
 $mq-custom-wide : 1200px !default;
 
-$color-background: #fff;
+$color-background: #ffffff;
 
   @mixin html {
-  background-image: url(../img/background_edited.jpg);
-
-  background-position: center;
-  background-blend-mode: color#ffffff;
-  background-attachment: scroll;
-  background-repeat: no-repeat;
-  background-size: cover;
+background-image: url("../img/background_edited.jpg");
+background-position: center;
+background-blend-mode: color#ffffff;
+background-attachment: scroll;
+background-repeat: no-repeat;
+background-size: cover;
 
 }
 
@@ -292,7 +291,7 @@ $color-background: #fff;
     padding: 1%;
     margin: 1%;
 
-    background-color: #fff;
+    background-color: #ffffff;
 
     border-radius: 8px;
 
@@ -385,10 +384,10 @@ html{
     // -moz-background-size: cover;
     // -o-background-size: cover;
     // background-size: cover;
-    @include html;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    position: relative;
+  @include html;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
 
     @include mobile-only{
         //margin: 3px;
@@ -477,7 +476,7 @@ body{
                 font-weight: 400;
                 text-align: center;
                 color: white;
-                background:#000000;
+                background: #000000;
                 margin-top: 3px;
                 margin-bottom: 3px;
                 margin-right: 10px;
@@ -722,7 +721,7 @@ body{
                     }
 
                     #the-czar{
-                        color: #fff;
+                        color: #ffffff;
                         font-weight: bold;
                         font-size: 20px;
 
@@ -798,7 +797,7 @@ body{
                         #inner-timer-container{
                             text-align: center;
                             @include soft-button;
-                            background: #FFF;
+                            background: #ffffff;
                             text-shadow: none;
                             cursor: default;
                             border: none;
@@ -1153,7 +1152,7 @@ body{
 
                 #charity-fact-container{
                     @include br;
-                    background-color: #fff;
+                    background-color: #ffffff;
                     color:#000000;
 
                     position: absolute;

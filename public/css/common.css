@@ -6,7 +6,7 @@
   height: 215px;
   padding: 1%;
   margin: 1%;
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 8px;
   color: #252525;
   font-family: Arial;
@@ -65,7 +65,7 @@ html, body, .main-container, .cont, #first-section, #inner-container {
   height: 100%; }
 
 html {
-  background-image: url(../img/background_edited.jpg);
+  background-image: url("../img/background_edited.jpg");
   background-position: center;
   background-blend-mode: color #ffffff;
   background-attachment: scroll;
@@ -334,7 +334,7 @@ body {
             #main-container #app-container #social-bar-container #player-container #czar-container {
               overflow: auto; } }
           #main-container #app-container #social-bar-container #player-container #czar-container #the-czar {
-            color: #fff;
+            color: #ffffff;
             font-weight: bold;
             font-size: 20px; }
             @media (max-width: 520px) {
@@ -418,7 +418,7 @@ body {
               text-indent: 0;
               text-shadow: 1px 1px 0px #ffffff;
               cursor: pointer;
-              background: #FFF;
+              background: #FFFFFF;
               text-shadow: none;
               cursor: default;
               border: none;
@@ -746,7 +746,7 @@ body {
           -webkit-border-radius: 8px;
           -moz-border-radius: 8px;
           border-radius: 8px;
-          background-color: #fff;
+          background-color: #ffffff;
           color: #000000;
           position: absolute;
           bottom: 4%;
