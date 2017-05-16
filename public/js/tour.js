@@ -37,10 +37,13 @@ tour.addStep({
 tour.addStep(
   {
     path: '/#!/',
-    element: '.crDonated',
+    element: '.some-text',
     title: 'Donation',
     content: 'Do not forget to Donate',
-    placement: 'top'
+    placement: 'right',
+    onNext() {
+      document.location.href = '/#!/app/';
+    },
   });
 tour.addStep({
   path: '/#!/app/',
@@ -48,6 +51,9 @@ tour.addStep({
   title: 'Game',
   content: 'This is where the game happens. Has a timer on the left to time each question. You can abandon the game using button on top-right. Enjoy!',
   placement: 'top',
+  onPrev() {
+    document.location.href = '/#!/';
+  },
   onNext() {
     document.location.href = '/#!/';
   },
