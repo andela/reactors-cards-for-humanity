@@ -62,7 +62,7 @@ tour.addStep({
   path: '/#!/',
   element: '#avatars',
   title: 'End',
-  content: 'The End',
+  content: 'Remember we value Donations',
   placement: 'bottom',
   onPrev() {
     document.location.href = '/#!/app/';
