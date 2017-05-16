@@ -287,15 +287,15 @@ background-size: cover;
     display: inline-block;
     box-sizing: border-box;
     width: 17.5%;
-    height: 215px;
+    height: 200px;
     padding: 1%;
     margin: 1%;
 
-    background-color: #ffffff;
+    background-color: #000000;
 
     border-radius: 8px;
 
-    color: #252525;
+    color: #ffffff;
     font-family: Arial;
     font-size: 20px;
     font-weight: bold;
@@ -337,6 +337,7 @@ background-size: cover;
 
     &.smallest {
         font-size: 0.750em;
+        color:#ffffff;
 
         @include mobile-only{
             font-size: 10px; //play with later
@@ -352,7 +353,7 @@ background-size: cover;
         text-decoration: none;
 
         height: 1em;
-        border-bottom: 0.125em solid white;
+        border-bottom: 0.125em solid white    ;
         margin-bottom: -0.125em;
 
         .small {
@@ -367,6 +368,7 @@ background-size: cover;
             position: absolute;
             right: -0.357em;
             display: inline-block;
+            background-color: #000000;
             content: '.';
         }
     }
@@ -432,7 +434,7 @@ body{
             -webkit-border-radius: 8px;
             -moz-border-radius: 8px;
             border-radius: 8px;
-            background: #252525;
+            background: #00FFFF;
             margin-bottom: 10px;
             margin-top: 5px;
             padding: 5px;
@@ -467,7 +469,7 @@ body{
 
             #abandon-game-button{
                 display: inline-block;
-                float:right;
+                float: right;
                 border-radius: 8px;
                 -moz-border-radius: 8px;
                 -webkit-border-radius: 8px;
@@ -498,10 +500,10 @@ body{
             }
 
             #tweet-container{
-                float: center;
+                float: right;
                 padding-top: 10px;
-                width: 77px;
-                margin-right: 10px;
+                width: 87px;
+                margin-right: 5px;
 
                 @include mobile-only{
                     float: right;
@@ -529,7 +531,7 @@ body{
 
         #social-bar-container{
             width: 20%;
-            height: 63%;
+            height: 20%;
             position: absolute;
             right: 0;
             top: 60px;
@@ -541,17 +543,16 @@ body{
                 position: relative;
                 top: 0;
                 left: 0;
-                // background: white;
             }
 
             #player-container{
-                height: 13.166667%;
+                height: 11.166667%;
                 position: relative;
-                padding-top: 4%;
-                padding-bottom: 4%;
+                padding-top: 2%;
+                padding-bottom: 2%;
                 min-height: 85px;
                 background: #7CE4E8;
-                margin: 0 0 6% 8%;
+                margin: 0 0 2% 4%;
                 @include br;
 
                 @include mobile-only{
@@ -572,12 +573,6 @@ body{
                         height: 100%;
                     }
 
-                    #avatar_ {
-                        height: 100%;
-                        width: 38%;
-                        float: left;
-                        position: relative;
-                        z-index: 999;
 
                         #king {
                            position: absolute;
@@ -596,7 +591,6 @@ body{
                                 bottom: 31px;
                                 left: -3px;
                            }
-                         }
 
 
                         img {
@@ -667,7 +661,7 @@ body{
 
                             h2{
 
-                                font-size: 26px;
+                                font-size: 18px;
                                 margin-top: 0;
                                 margin-bottom: 0;
 
@@ -792,19 +786,19 @@ body{
                     }
 
                     #timer-container {
-                        height: 100%;
+                        height: 70%;
 
                         #inner-timer-container{
                             text-align: center;
                             @include soft-button;
-                            background: #ffffff;
+                            background:#808080;
                             text-shadow: none;
                             cursor: default;
                             border: none;
-                            min-width: 85px;
+                            min-width: 65px;
                             min-height: 85px;
                             height: 100%;
-                            color: #000;
+                            color: #ffffff;
 
                             #timer-status-round, #timer-status-czar-choosing{
                                 position: absolute;
@@ -825,9 +819,9 @@ body{
 
                             #time{
                                 font-family: 'Lobster', cursive;
-                                font-size: 110px;
+                                font-size: 90px;
                                 position: absolute;
-                                bottom: 25%;
+                                bottom: 15%;
                                 left: 0;
                                 right: 0;
 
@@ -844,7 +838,7 @@ body{
                  }
 
                 #question-container-outer {
-                    height: 100%;
+                    height: 80%;
                     float: left;
                     width: 79%;
 
@@ -860,11 +854,11 @@ body{
                     }
 
                     #question-container-inner{
-                        width: 100%;
-                        height: 100%;
+                        width: 80%;
+                        height: 80%;
                         .card{
                             width: 100%;
-                            margin: 0px auto;
+                            margin: 15px auto;
                             display: block;
 
                             #notifications {
@@ -900,7 +894,7 @@ body{
 
                                 #player-count-container{
                                     #player-count{
-                                        font-size: 33px;
+                                        font-size: 25px;
 
                                         @include mobile-only{
                                             font-size: 21px;
@@ -976,13 +970,13 @@ body{
                 }
             }
             #info-container{
-                width: 100%;
+                width: 90%;
                 background: #252525;
-                color: white;
+                color: #ffffff;
                 @include br;
                 text-align: center;
                 padding: 15px;
-                height: 50%;
+                height: auto;
                 margin-top: 10px;
 
                 @include tablet-portrait-only{
@@ -1002,7 +996,8 @@ body{
                     margin: 0 5%;
 
                     #lobby-how-to-play{
-                        font-size: 18px;
+                        font-size: 40px;
+                        text-decoration: underline;
                         margin-top: 10px;
 
                         @include tablet-portrait-only{
@@ -1010,14 +1005,14 @@ body{
                         }
                     }
 
-                    ol{
+                    ul{
                         margin-top: 10px;
                         font-family: $main-font;
                         text-align: left;
-                        font-size: 17px;
+                        font-size: 25px;
 
                         li{
-                            list-style-type: decimal;
+                            list-style-type: disc;
                             margin-bottom: 5px;
                         }
 
@@ -1214,7 +1209,7 @@ body{
 
             #cards-container{
                 width: 100%;
-                background: #252525;
+                background: transparent;
                 margin-top: 11px;
                 @include br;
 
