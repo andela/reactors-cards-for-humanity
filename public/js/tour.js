@@ -58,6 +58,9 @@ tour.addStep({
   title: 'End',
   content: 'The End',
   placement: 'bottom',
+  onPrev() {
+    document.location.href = '/#!/app/';
+  },
 });
 // Initialize the tour
 tour.init();
