@@ -21,7 +21,7 @@ module.exports = function (app, passport, auth) {
   app.get('/signout', users.signout);
 
   // search a user
-  app.get('/api/search/users', user.authSearch, users.search);
+  app.get('/api/search/users', user.authenticate, users.search);
 
   // Setting up the users api
   app.post('/users', users.create);
@@ -105,3 +105,4 @@ module.exports = function (app, passport, auth) {
   app.post('/api/auth/login', users.loginWithJWT);
   app.post('/api/auth/signup', users.signUpWithJWT);
 };
+

@@ -3,7 +3,7 @@
  */
 const jwt = require('jsonwebtoken');
 
-const secretKey = 'hello';
+const secretKey = process.env.SECRET;
 
 exports.requiresLogin = function (req, res, next) {
     if (!req.isAuthenticated()) {
@@ -23,7 +23,7 @@ exports.user = {
         next();
     }
 };
-exports.authSearch = (req, res, next) => {
+exports.authenticate = (req, res, next) => {
     // check header or url parameters or post parameters for token
     const token = req.body.token || req.query.token || req.headers['x-access-token'];
 
@@ -41,7 +41,7 @@ exports.authSearch = (req, res, next) => {
     } else {
         // if there is no token
         // return an error
-        return res.status(403).send({
+        return res.status(400).send({
             success: false,
             message: 'No token provided.'
         });

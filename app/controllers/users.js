@@ -8,7 +8,7 @@ const User = mongoose.model('User');
 const jwt = require('jsonwebtoken');
 const avatars = require('./avatars').all();
 
-const secretKey = 'hello';
+const secretKey = process.env.SECRET;
 // Auth callback
 exports.authCallback = (req, res, next) => {
   res.redirect('/chooseavatars');
@@ -232,20 +232,20 @@ exports.loginWithJWT = (req, res) => {
         { id: user.id, name: user.name, email: user.email }, { token }));
     });
 };
-const validateUsername = (q) => {
+const validateUserInput = (q) => {
   if (q === undefined || q === '' || /^\d+$/.test(q)) {
     return false;
   }
   return true;
 };
 exports.search = (req, res) => {
-  if (!validateUsername(req.query.q)) {
+  if (!validateUserInput(req.query.q)) {
     return res.status(400).send({ message: 'Invalid input' });
   }
   return User
     .find({ name: { $regex: new RegExp(req.query.q, 'i') } }, 'email name')
     .exec((err, users) => {
-      if (err) return res.status(404).send({ message: 'There was an error with your connection.' });
+      if (err) return res.status(400).send({ message: 'There was an error with your connection.' });
       if (!users.length) return res.status(404).send({ message: 'User not found.' });
       return res.status(200).send(users);
     });
