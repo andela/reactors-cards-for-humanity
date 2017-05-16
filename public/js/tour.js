@@ -27,14 +27,6 @@ tour.addStep({
   content: ' Click to sign up and start game or Play as guest',
   placement: 'bottom'
 });
-tour.addStep(
-  {
-    path: '/#!/',
-    element: '.some-text',
-    title: 'Donation',
-    content: 'Do not forget to Donate',
-    placement: 'top'
-  });
 tour.addStep({
   path: '/#!/',
   element: '.wpb-text',
@@ -42,12 +34,30 @@ tour.addStep({
   content: 'A game with purpose to help others.',
   placement: 'top',
 });
+tour.addStep(
+  {
+    path: '/#!/',
+    element: '.crDonated',
+    title: 'Donation',
+    content: 'Do not forget to Donate',
+    placement: 'top'
+  });
 tour.addStep({
   path: '/#!/app/',
   element: '#inner-info',
   title: 'Game',
   content: 'This is where the game happens. Has a timer on the left to time each question. You can abandon the game using button on top-right. Enjoy!',
   placement: 'top',
+  onNext() {
+    document.location.href = '/#!/';
+  },
+});
+tour.addStep({
+  path: '/#!/',
+  element: '#avatars',
+  title: 'End',
+  content: 'The End',
+  placement: 'bottom',
 });
 // Initialize the tour
 tour.init();
@@ -55,6 +65,7 @@ tour.init();
 // Start the tour
 tour.start().goTo(0);
 
+// to be called on click to restart tour
 const restartTour = {
   restart: () => {
     tour.restart();
