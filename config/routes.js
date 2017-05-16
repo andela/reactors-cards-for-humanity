@@ -6,8 +6,10 @@ const answers = require('../app/controllers/answers');
 const questions = require('../app/controllers/questions');
 const avatars = require('../app/controllers/avatars');
 const users = require('../app/controllers/users');
-const mongoose = require('mongoose'),
-  User = mongoose.model('User');
+const mongoose = require('mongoose');
+const user = require('./middlewares/authorization');
+
+User = mongoose.model('User');
 // const dev = require('../config/development');
 const port = process.env.PORT || 3000;
 
@@ -17,6 +19,9 @@ module.exports = function (app, passport, auth) {
   app.get('/signup', users.signup);
   app.get('/chooseavatars', users.checkAvatar);
   app.get('/signout', users.signout);
+
+  // search a user
+  app.get('/api/search/users', user.authenticate, users.search);
 
   // Setting up the users api
   app.post('/users', users.create);
@@ -100,3 +105,4 @@ module.exports = function (app, passport, auth) {
   app.post('/api/auth/login', users.loginWithJWT);
   app.post('/api/auth/signup', users.signUpWithJWT);
 };
+

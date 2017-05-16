@@ -8,7 +8,7 @@ const User = mongoose.model('User');
 const jwt = require('jsonwebtoken');
 const avatars = require('./avatars').all();
 
-const secretKey = 'hello';
+const secretKey = process.env.SECRET;
 // Auth callback
 exports.authCallback = (req, res, next) => {
   res.redirect('/chooseavatars');
@@ -180,7 +180,7 @@ exports.signUpWithJWT = (req, res) => {
     }).exec((err, existingUser) => {
       if (!existingUser) {
         const user = new User(req.body);
-          // Switch the user's avatar index to an actual avatar url
+        // Switch the user's avatar index to an actual avatar url
         user.avatar = avatars[user.avatar];
         user.provider = 'jwt';
         user.save((err) => {
@@ -191,9 +191,9 @@ exports.signUpWithJWT = (req, res) => {
             expiresIn: 60 * 60
           });
 
-            // Send token
+          // Send token
           res.status(200).json(Object.assign({},
-        { id: user.id, name: user.name, email: user.email }, { token }));
+            { id: user.id, name: user.name, email: user.email }, { token }));
         });
       } else {
         return res.status(401).json({ message: 'Existing User' });
@@ -204,31 +204,49 @@ exports.signUpWithJWT = (req, res) => {
   }
 };
 exports.loginWithJWT = (req, res) => {
-    // Check if the email and passord fields are empty
+  // Check if the email and passord fields are empty
   if (req.body.email === '' || req.body.password === '') {
     return res.status(401).json({ message: 'The email and password fields cannot be empty' });
   } else if (!(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(req.body.email))) {
-      // Check that the correct password format is entered
+    // Check that the correct password format is entered
     return res.status(401).json({ message: 'Please enter a valid email format' });
   }
   User
-      .findOne({ email: req.body.email })
-      .then((user) => {
-        if (!user) {
-          return res.status(401).json({ message: 'User not found' });
-        }
-        if (!user.authenticate(req.body.password)) {
-          return res.status(401).json({
-            message: 'Invalid password'
-          });
-        }
-        // Generate and assign token to authenticated user
-        const token = jwt.sign({ data: user._id }, secretKey, {
-          expiresIn: 60 * 60
+    .findOne({ email: req.body.email })
+    .then((user) => {
+      if (!user) {
+        return res.status(401).json({ message: 'User not found' });
+      }
+      if (!user.authenticate(req.body.password)) {
+        return res.status(401).json({
+          message: 'Invalid password'
         });
-        // Send token
-        user.password = null;
-        res.status(200).json(Object.assign({},
-        { id: user.id, name: user.name, email: user.email }, { token }));
+      }
+      // Generate and assign token to authenticated user
+      const token = jwt.sign({ data: user._id }, secretKey, {
+        expiresIn: 60 * 60
       });
+      // Send token
+      user.password = null;
+      res.status(200).json(Object.assign({},
+        { id: user.id, name: user.name, email: user.email }, { token }));
+    });
+};
+const validateUserInput = (q) => {
+  if (q === undefined || q === '' || /^\d+$/.test(q)) {
+    return false;
+  }
+  return true;
+};
+exports.search = (req, res) => {
+  if (!validateUserInput(req.query.q)) {
+    return res.status(400).send({ message: 'Invalid input' });
+  }
+  return User
+    .find({ name: { $regex: new RegExp(req.query.q, 'i') } }, 'email name')
+    .exec((err, users) => {
+      if (err) return res.status(400).send({ message: 'There was an error with your connection.' });
+      if (!users.length) return res.status(404).send({ message: 'User not found.' });
+      return res.status(200).send(users);
+    });
 };
