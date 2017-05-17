@@ -9,7 +9,7 @@ tour.addStep({
   path: '/#!/',
   element: '#avatars',
   title: 'Welcome to Cards for Humanity',
-  content: 'to continue click next else endtour',
+  content: 'To continue click Next else End tour.',
   placement: 'bottom'
 });
 tour.addStep(
