@@ -1,0 +1,9 @@
+.popover {
+  max-width: 576px;
+  opacity: 0.3;
+}
+.popover-title {
+  background-color:cyan;
+  border-bottom: 5px solid #000000;
+  
+}
