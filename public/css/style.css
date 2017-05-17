@@ -218,7 +218,7 @@
  }
 
  .wpb-logo-container a {
-   color: cyan !important;
+   color: black !important;
  }
 
 
@@ -251,7 +251,7 @@
  }
 
   .wpb-menu-container .wpb-main-menu li a:hover {
-   color: black!important;
+   color: cyan!important;
    -webkit-transition: color 0.5s ease;
    -moz-transition: color 0.5s ease;
    -ms-transition: color 0.5s ease;
